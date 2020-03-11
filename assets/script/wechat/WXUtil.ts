@@ -7,7 +7,7 @@ export class WXUtil {
     static onHideCb: Map<string, Function> = new Map();//onhide回调函数Map,使用map避免重复注册回调函数
     static shareTitle = "【斗地主合集】好友约场永久免费，叫上朋友一起来吧~";//默认分享标题
     static shareImageUrl = "https://web.bzw.cn/wechatgame/doudizhu/sharepic/share2.png";//默认分享图片
-    static onLoad = WXUtil.init();//加载脚本时初始化
+    static _ctor = WXUtil.init();//加载脚本时初始化
 
     /**
      * 初始化小游戏基本功能
@@ -151,7 +151,7 @@ export class WXUtil {
 
     /**
      * 主动拉起转发，给好友分享信息
-     * @param obj.shareType  number类型 默认普通分享 1 截取屏幕中间5:4区域分享 2 分享obj.camera渲染的内容
+     * @param obj.shareType  number类型 不赋值默认普通分享, 1:截取屏幕中间5:4区域分享 2:分享obj.camera渲染的内容
      */
     static async shareAppMessage(obj: {
         shareType?: number, title?: string, imageUrl?: string, query?: string, camera?: cc.Camera,
@@ -209,7 +209,6 @@ export class WXUtil {
                 }
             };
         }
-
         let share = () => {
             wx.shareAppMessage({
                 title: obj.title,
