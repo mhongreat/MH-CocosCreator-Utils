@@ -67,10 +67,13 @@ export class PanelMgr {
 
 }
 
-/** 枚举Panel,值为预制体名字 */
+/** 
+ * 枚举Panel,值为预制体名字
+ */
 export enum PanelEnum {
     Tip = "Tip",
-    TipBox = "TipBox"
+    TipBox = "TipBox",
+    test1 = "test1",
 }
 
 

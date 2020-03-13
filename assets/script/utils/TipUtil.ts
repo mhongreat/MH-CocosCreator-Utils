@@ -1,6 +1,8 @@
 import { PanelMgr, PanelEnum } from "../ui/PanelMgr";
 
-/** 提示工具类 */
+/** 
+ * 提示信息工具类
+ */
 export default class TipUtil {
     /*  
      提示和提示框预制体要求
@@ -15,6 +17,7 @@ export default class TipUtil {
     /**
      * 显示提示
      * @param content 提示内容
+     * @param delay 延迟消失时间
      */
     static showTip(content: string, delay = 1.2) {
         if (TipUtil._tip && TipUtil._tip.isValid) {

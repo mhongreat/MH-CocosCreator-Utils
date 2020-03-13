@@ -1,6 +1,6 @@
-const { ccclass, property } = cc._decorator;
-
-@ccclass
+/**
+ * 常用的一些方法集合
+ */
 export default class Utils {
     /**
     * 加载远程图片
@@ -91,6 +91,16 @@ export default class Utils {
         return p;
     }
 
-
+    /**
+     * 返回今天的日期,格式20000101
+     */
+    static nowDate(): number {
+        let lt10 = v => {
+            return v < 10 ? "0" + v : v;
+        }
+        let date = new Date();
+        let str = "" + date.getFullYear() + lt10(date.getMonth() + 1) + lt10(date.getDate());
+        return parseInt(str);
+    }
 
 }

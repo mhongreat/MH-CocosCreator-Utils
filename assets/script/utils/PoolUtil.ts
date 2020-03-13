@@ -1,10 +1,14 @@
-/** 对象池枚举 */
+/** 
+ * 对象池枚举
+ */
 export enum PoolEnum {
     MOU,
     HONG
 }
 
-/** 对象池工具类 */
+/** 
+ * 对象池工具类
+ */
 export class PoolUtil {
     static _ctor = PoolUtil.clear();
     static _prefabs: Map<PoolEnum, cc.Prefab> = new Map();

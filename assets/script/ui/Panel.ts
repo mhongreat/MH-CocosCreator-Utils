@@ -1,6 +1,8 @@
 const { ccclass, property } = cc._decorator;
 
-/** 面板的一些通用功能 */
+/** 
+ * 面板的一些通用功能
+ */
 @ccclass
 export default class Panel extends cc.Component {
     @property({
