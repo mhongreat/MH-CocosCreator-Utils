@@ -1,7 +1,6 @@
 /** 二级界面管理类 */
 export class PanelMgr {
 
-    static _ctor = PanelMgr.clear();
     static _cache: Map<string, cc.Node> = new Map();//panel节点的缓存
     static _suffer = "";//动态加载预制体的路径前缀
 
@@ -25,6 +24,7 @@ export class PanelMgr {
                         reject();
                     } else {
                         node = cc.instantiate(prefab);
+                        node["dependAssets"] = cc.loader.getDependsRecursively(url);
                         PanelMgr._cache.set(url, node);
                         success();
                     }
@@ -55,15 +55,15 @@ export class PanelMgr {
         return node;
     }
 
-    /** 切换场景销毁所有panel */
-    static clear() {
-        cc.director.on(cc.Director.EVENT_BEFORE_SCENE_LAUNCH, () => {
-            PanelMgr._cache.forEach(v => {
-                v.isValid && v.destroy();
-            });
-            PanelMgr._cache.clear();
-        });
-    }
+    // /** 切换场景销毁所有panel */
+    // static clear() {
+    //     cc.director.on(cc.Director.EVENT_BEFORE_SCENE_LAUNCH, () => {
+    //         PanelMgr._cache.forEach(v => {
+    //             v.isValid && v.destroy();
+    //         });
+    //         PanelMgr._cache.clear();
+    //     });
+    // }
 
 }
 

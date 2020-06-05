@@ -1,0 +1,1682 @@
+/res
+/catchElf
+catching.atlas 37391a62
+catching.png 21db057e
+catching.zbin 06d5faa7
+catchSucc.atlas a2f11dd5
+catchSucc.png 388571f3
+catchSucc.zbin 88da0e7d
+catchSucc2.atlas 1a4e5367
+catchSucc2.png 2fcb6a5e
+catchSucc2.zbin 6cafa6e0
+flee2.atlas 99ec9994
+flee2.png fbbd1039
+flee2.zbin f4bfea99
+newWoman.atlas 2c05ed52
+newWoman.png 5abc07b9
+newWoman.zbin fd56d1f2
+proLight.atlas 50246c33
+proLight.png 2ef6782b
+proLight.zbin 959f837c
+propBoom.atlas 4c73bce3
+propBoom.png 3ae836b5
+propBoom.zbin ed00a48d
+propFly.atlas a65fae66
+propFly.png 608484dd
+propFly.zbin 46b7a7d7
+speedLine.atlas c8c09d26
+speedLine.png d2c9e755
+speedLine.zbin 251f12c7
+watchBoom.atlas 400ebd58
+watchBoom.png 5b8e2809
+watchBoom.zbin 82cfbd6b
+watchBroken.atlas 319e26b3
+watchBroken.png c5ff4e9e
+watchBroken.zbin 4ad9c4f0
+wong.atlas 309b0758
+wong.png f4574b9f
+wong.zbin bacf19ff
+\
+/catchMap
+001.jpg 831ba236
+002.jpg 407f0a56
+003.jpg 141d2142
+004.jpg 6c388bd1
+005.jpg 7c18db6f
+006.jpg 50254a26
+007.jpg 62e66603
+008.jpg 719f1842
+009.jpg 2935537c
+010.jpg 1344940a
+011.jpg 248ba6fe
+012.jpg f737dbdc
+013.jpg dc58079a
+014.jpg 40303dcc
+015.jpg 1037aa20
+min.jpg 3613170f
+\
+/combat
+/bufficon
+buff_fy.jpg 3a372436
+buff_fyj.jpg 1067fe2a
+buff_gj.jpg d5b1e468
+buff_gjj.jpg f3647f79
+buff_shsj1.jpg d534f2a6
+buff_shsj2.jpg 6243bf97
+buff_wyyy.jpg ec5f1e64
+buff_xin1.jpg fadd3b81
+buff_xin2.jpg 1a39ab18
+buff_xin3.jpg a4a7d495
+buff_xin4.jpg 7108bcb0
+buff_xin5.jpg 1b1c3279
+buff_xin6.jpg f5f0205c
+\
+/skills
+anhejq.atlas 25fc2857
+anhejq.png 696c2a48
+anhejq.zbin c68d9735
+anshouji.atlas da85f749
+anshouji.png 31916b63
+anshouji.zbin 73e009c1
+bingkan.atlas 5c8ff875
+bingkan.png 9c6413d5
+bingkan.zbin 215f7eca
+chaome.atlas 8ba2b6c7
+chaome.png e923e446
+chaome.zbin c39238df
+chaomen.atlas 8bd299f1
+chaomen.png 7be79fb2
+chaomen.zbin 815eaf9a
+chuchang.atlas 41b5408d
+chuchang.png 5e106344
+chuchang.zbin 4cc4617e
+cjzli.atlas 701568dd
+cjzli.png 8a28f607
+cjzli.zbin 409ba10f
+fazhen.atlas 69e33003
+fazhen.png 4be83e35
+fazhen.zbin 24cdfe48
+feiyee.atlas a5e8f862
+feiyee.png 447f9b8a
+feiyee.zbin 4a2f0e05
+feiyekuaidao.atlas e19b06df
+feiyekuaidao.png 7721ea2e
+feiyekuaidao.zbin 87ec059b
+fireBoom1.atlas 20a50bc6
+fireBoom1.png a9955694
+fireBoom1.zbin 62750a73
+fireboom2.atlas d968728b
+fireboom2.png c46a37f7
+fireboom2.zbin cd0d393e
+fireboom3.atlas 7c79bb81
+fireboom3.png 98766b89
+fireboom3.zbin 865cc49e
+firedanti.atlas dc5a5556
+firedanti.png b3a973d7
+firedanti.zbin 0a930a0a
+fireMeteorite1.atlas 8e7ee8c8
+fireMeteorite1.png 24346ca9
+fireMeteorite1.zbin 140b6833
+healEffect1.atlas 591251c7
+healEffect1.png 12b00bc4
+healEffect1.zbin ebbce5bc
+hudun.atlas fcb13aa8
+hudun.png 4265fa31
+hudun.zbin c70d3342
+huofeidao.atlas 47f18205
+huofeidao.png b1b352d7
+huofeidao.zbin 99d5eaed
+huohua.atlas 169f723a
+huohua.png 6877814b
+huohua.zbin 616addc3
+huoqiu.atlas 4d2e60c2
+huoqiu.png f9b0950f
+huoqiu.zbin eb0643ed
+huoshi.atlas bf1de198
+huoshi.png 0f39f6e3
+huoshi.zbin e8f90e57
+huyanxij.atlas f22d5ad3
+huyanxij.png 86fde361
+huyanxij.zbin 51c09bee
+JHCD.atlas 3c7d5098
+JHCD.png 1faf1a9c
+JHCD.zbin 497c0867
+JHGB.atlas 8c457179
+JHGB.png 3b17f776
+JHGB.zbin 0505014d
+JQHD.atlas 23c0f43f
+JQHD.png 2539e4a1
+JQHD.zbin c2c84c2d
+JQSB.atlas 55a0e2dd
+JQSB.png 79a1158f
+JQSB.zbin 758f0683
+JTSA.atlas cf10cdc6
+JTSA.png 0be097ec
+JTSA.zbin 632b5dc2
+JTSC.atlas 25a545c2
+JTSC.png 4e2c95e7
+JTSC.zbin 2ef128d5
+leiyun.atlas 958326f2
+leiyun.png 8698c372
+leiyun.zbin 3e937542
+missileWater1.atlas c49b9547
+missileWater1.png d1e1f7a6
+missileWater1.zbin afeeb7e6
+nuqi.atlas ca85e811
+nuqi.png 76c5055d
+nuqi.zbin 02b11a37
+shadan.atlas 02d3a69a
+shadan.png caa18e5a
+shadan.zbin 8f26eced
+shadca.atlas 3bb397e6
+shadca.png f687b5d9
+shadca.zbin a8c64ce6
+shadga.atlas 900fab65
+shadga.png 85544a7f
+shadga.zbin 470bc27d
+shandian.atlas fd807c2b
+shandian.png 1cd9ad32
+shandian.zbin 84459d4c
+shuisjd.atlas 670e41d4
+shuisjd.png c5527950
+shuisjd.zbin 492f805d
+shuizhu.atlas 963b349e
+shuizhu.png f20996c8
+shuizhu.zbin f192f21b
+singEffect1.atlas ea8b66c6
+singEffect1.png 691ed2b4
+singEffect1.zbin 8751cf6c
+singEffect2.atlas c27361b5
+singEffect2.png 691ed2b4
+singEffect2.zbin d0edd953
+tyhyyy.atlas ac2a1d82
+tyhyyy.png 98de77fe
+tyhyyy.zbin 9eaa4f2c
+waterBoom1.atlas 3917bfde
+waterBoom1.png 7cd08d47
+waterBoom1.zbin 3354b5ff
+waterBoom2.atlas 35ef128d
+waterBoom2.png c4111c0e
+waterBoom2.zbin ae688ce0
+waterBoom3.atlas b2ad5a99
+waterBoom3.png 59bbc699
+waterBoom3.zbin e6a4ffad
+xulifagt.atlas 8a3ceb2d
+xulifagt.png 73bd26e5
+xulifagt.zbin 9b40ce44
+zhiliao.atlas e4a9454f
+zhiliao.png 6bda6ab0
+zhiliao.zbin aa6cb6e1
+\
+\
+/elf
+/awakeEff
+elfBoom.atlas 13bf0220
+elfBoom.png 6d8797c4
+elfBoom.zbin c461c345
+elfGuideLine.atlas 3b0ba16e
+elfGuideLine.png 2a1e44a2
+elfGuideLine.zbin 78d5cc9d
+elfLight.atlas d0259772
+elfLight.png 748e7cce
+elfLight.zbin 9ec861e5
+elfLightBall.atlas 69229561
+elfLightBall.png 8c4cac8d
+elfLightBall.zbin b9b1229d
+elfLightTo.atlas 985b3a0a
+elfLightTo.png 072fd197
+elfLightTo.zbin 62afdb7d
+elfLvUp.atlas 229ed302
+elfLvUp.png 81e7d165
+elfLvUp.zbin 3411b9d7
+\
+/character
+font_baoshou.png 377efdc7
+font_chenzhuo.png 9119b9e4
+font_dadan.png 1d7d592d
+font_danxiao.png c5930898
+font_fuzao.png 54c1abb2
+font_gudu.png 3365279a
+font_guzhi.png 1ff36bdc
+font_haiqiu.png c21bcd27
+font_jizao.png 0b5cf318
+font_kailang.png 0b1e14e6
+font_kuangwang.png f7925f78
+font_lengjing.png 168f45d6
+font_letian.png fb2276d1
+font_mahu.png 08e4a166
+font_nuli.png 43204bd0
+font_renzhen.png 66f605bb
+font_shenzhong.png d224d29b
+font_taoqi.png 3ac2cc5f
+font_tianzhen.png 9d9f082f
+font_tiaopi.png 56a6064f
+font_wenshun.png 1f1c649a
+font_wenzhong.png 30c57454
+font_yonggan.png 2690643f
+font_youxian.png cbeae96e
+font_zhishuai.png 6554a5c6
+\
+/elfUpLv
+elfUpLv.atlas 1bcbce51
+elfUpLv.png c85c2512
+\
+/footCircle
+foot1.atlas 2b9fcd34
+foot1.png bc2f417f
+foot1.zbin 67bca61c
+foot2.atlas a503bde9
+foot2.png 70bf33e7
+foot2.zbin be45f5b0
+\
+/headIcon
+icon_touxiang_01.png 9abedba1
+\
+/icon
+1.png ea59301a
+10.png ab7afbed
+11.png 51f21a18
+12.png 4524e489
+13.png d77abc1a
+14.png 57169960
+15.png ea59301a
+16.png 51f21a18
+17.png ab7afbed
+18.png 51f21a18
+19.png 4524e489
+2.png 17510fb2
+20.png d77abc1a
+21.png 57169960
+22.png ea59301a
+23.png 17510fb2
+24.png 17510fb2
+25.png 51f21a18
+26.png 57169960
+27.png d77abc1a
+28.png 4524e489
+29.png ea59301a
+3.png ab7afbed
+30.png 57169960
+31.png 17510fb2
+32.png 17510fb2
+33.png ab7afbed
+34.png 51f21a18
+35.png d77abc1a
+4.png 51f21a18
+5.png 4524e489
+6.png d77abc1a
+7.png 57169960
+8.png 4524e489
+9.png 17510fb2
+\
+/petFrame
+crab.atlas 0f8e9420
+crab.png 672f9a18
+crab.zbin 8bdab651
+fireDragon.atlas e05ac63c
+fireDragon.png 55efe992
+fireDragon.zbin 27aa327f
+smileRoo.atlas 3110500a
+smileRoo.png 1b9558f0
+smileRoo.zbin fe3b49d1
+\
+/rarity
+rarity_1.png 83520f00
+rarity_2.png 01f5912c
+rarity_3.png 62ea924e
+rarity_4.png 3a0eca2a
+rarity_5.png 43ef35ba
+rarity_6.png b001688c
+\
+/spin
+pangxie.png a13d633a
+pangxie.zsk 93adab13
+weixiaoaidaishu.png 29833da8
+weixiaoaidaishu.sk 6d6802a2
+weixiaoaidaishu.zsk f277ece6
+xiaohuolong.png 7e5c1997
+xiaohuolong.sk e2c67176
+xiaohuolong.zsk 2b6a4dca
+yinfuniao.png 89117dad
+yinfuniao.zsk ecea09b1
+\
+\
+/itemIcons
+1.png 615797cc
+10.png 21361331
+1000001.png 51cafefa
+1000002.png 52b778be
+1000003.png 150fa5e2
+1000004.png 525ca69f
+1000005.png 34a8d580
+1000006.png 7a7e9b79
+1000007.png b3404d72
+1000008.png 91d124bf
+1000009.png 8636870e
+1000024.png 88ad679c
+1000025.png 91d124bf
+1000026.png 8636870e
+1000027.png b99b8956
+1000028.png f9574602
+1000029.png 0ba688cf
+1000030.png 1e388336
+1000034.png 37b2adbe
+11.png 78c306c0
+12.png 9b50be1e
+2.png 5a306b18
+3.png df2d1bb1
+4.png 6262b50b
+5.png 7f719d0e
+6.png 687197da
+7.png 30a8b3db
+8.png ba2b3f0c
+9.png 5af83e84
+\
+/levelUnlock
+1.png 99a5f41c
+10.png 382d7b3b
+11.png 0244457b
+12.png 822614d9
+13.png 822614d9
+14.png 822614d9
+15.png 822614d9
+16.png 4b98af9b
+17.png 822614d9
+18.png 822614d9
+19.png 822614d9
+2.png 822614d9
+20.png 822614d9
+21.png 273ba56b
+22.png 39323ec2
+23.png cc38a638
+24.png e7088212
+25.png 822614d9
+26.png 33fe5735
+27.png 64ae1fe0
+28.png 822614d9
+29.png 822614d9
+3.png d2e59592
+30.png 42c1916e
+31.png e2e16209
+32.png 822614d9
+33.png 822614d9
+34.png b959213b
+35.png 6a65219e
+36.png 822614d9
+37.png 822614d9
+38.png 822614d9
+39.png 822614d9
+4.png 822614d9
+40.png 822614d9
+5.png 66095b62
+52.png 25044a97
+54.png 5d639788
+6.png 822614d9
+60.png ad71fa4e
+62.png 097d18c6
+63.png 92454b9c
+65.png 0839f282
+67.png dbac552f
+7.png 68f7dc99
+8.png 822614d9
+9.png 2afe510f
+\
+/npc
+/effect
+/appera
+down1.atlas 12c60a5a
+down1.png 48bf2f9c
+down1.zbin d3c5f8d0
+up1.atlas abbb999a
+up1.png 59f65ed1
+up1.zbin 4b33d2d5
+\
+/tips
+1.atlas de5b0b14
+1.png 1e969700
+1.zbin 57947b7f
+\
+\
+/pic
+1.png a7d6ed44
+2.png a86e99d1
+3.png 7d270f6a
+\
+\
+/role
+default.atlas 1370931e
+default.png 1e0f85a8
+default.zbin e9aaa2a2
+/dressUpIcon
+/avatar
+1.png 0ba688cf
+2.png 1e388336
+\
+\
+/headFrame
+1.png a68f0d9d
+2.png 37b01dc7
+3.png 82c26ea9
+4.png 3e6191b3
+\
+newWoman.atlas 45cd33f7
+newWoman.png ab2e9787
+newWoman.zbin 56749354
+roleLvUp.atlas d8366259
+selina.atlas f8a8147e
+selina.png d18ca0cd
+selina.zbin e9aaa2a2
+/title
+_0001.png 9c3dd27a
+\
+/uiSpine
+zhengmian.png 625684b0
+zhengmian.zsk cd8887b6
+\
+/wing
+chibang.png b54111dd
+chibang.zsk 8fd40ead
+icon_01.png cf342b79
+\
+\
+/scene
+/animation
+sceneClick.atlas fbabc937
+sceneClick.png c2d0c310
+sceneClick.zbin 4b9032ad
+showUp.atlas e6184014
+showUp.png f5a91ad1
+showUp.zbin e818d90d
+\
+/decoration
+bigSpring.atlas 3fb31bf8
+bigSpring.png 505b3924
+bigSpring.zbin a5fe4986
+crab.atlas a1abac02
+crab.png 4d6d82ae
+crab.zbin c9461a81
+littleSpring.atlas 4c11dc4a
+littleSpring.png f371a34f
+littleSpring.zbin f81c9312
+\
+/lvUp
+roleLvUp.atlas d8366259
+roleLvUp.png 27502f9d
+roleLvUp.zbin 169982da
+\
+/map1
+001.jpg 008b9cea
+002.jpg aa5d3b20
+003.jpg b71ccc73
+004.jpg ab91b2b1
+005.jpg 4bed51c4
+006.jpg b63edc9a
+007.jpg ed2482d8
+008.jpg 42ab4eae
+009.jpg d674b724
+010.jpg 18721bf4
+011.jpg 6847d6e3
+012.jpg 3b9468d6
+013.jpg 7e4dc78f
+014.jpg dde5828c
+015.jpg 2f337fb4
+016.jpg 1f180515
+017.jpg dae5c72c
+018.jpg c0f73db5
+019.jpg 7ef12551
+020.jpg cc92f99d
+021.jpg 372bcfe4
+022.jpg 5b4dcc8f
+023.jpg d1ab9854
+024.jpg 36aaab3a
+025.jpg 40324188
+026.jpg 357e8d47
+027.jpg 249fb662
+028.jpg df50390a
+029.jpg b153949e
+030.jpg 163cf0ab
+031.jpg 9e25684f
+032.jpg e40fe466
+033.jpg 8b9ead8d
+034.jpg bc346be3
+035.jpg 811a6076
+036.jpg d4fe5d48
+037.jpg b62bf273
+038.jpg 6567e61d
+039.jpg da0354c6
+040.jpg 7e5ba26b
+041.jpg 40c5556e
+042.jpg aa2cbd08
+043.jpg 032c0ae0
+044.jpg 5ff1d6c0
+045.jpg 76e7488d
+046.jpg d1fcd103
+047.jpg 3f08cebf
+048.jpg 464247a8
+049.jpg 3683d323
+050.jpg 86682114
+051.jpg 125ff3bd
+052.jpg a8fd8d62
+053.jpg 35983422
+054.jpg 8479ef7b
+055.jpg aa52a3de
+056.jpg 34162275
+057.jpg 2966160a
+058.jpg 47c38cca
+059.jpg b9f0f874
+060.jpg 01e9af56
+061.jpg b2272c8b
+062.jpg 412139d1
+063.jpg 75b0cda2
+064.jpg 168123b7
+065.jpg 01d579ef
+066.jpg df301856
+067.jpg fe6ce1db
+068.jpg b186dfea
+069.jpg 6a9e8944
+070.jpg eab8a23a
+071.jpg 473d552e
+072.jpg 58032119
+073.jpg 07c71145
+074.jpg b1599ea3
+075.jpg 46b43da4
+076.jpg d8923bb0
+077.jpg 6f45d6ff
+078.jpg 23efbd04
+079.jpg d989cc10
+080.jpg 076f734a
+081.jpg 0503a542
+082.jpg 995dbdcb
+083.jpg a9bd79e8
+084.jpg 69db2e86
+085.jpg 54868b51
+086.jpg 45065edb
+087.jpg 89b0ca5a
+088.jpg a1026305
+089.jpg 35ce9cf0
+090.jpg 67d85114
+091.jpg 624dda13
+092.jpg f1f6442a
+093.jpg 1df48d00
+094.jpg 932b048d
+095.jpg ffa2bfe1
+096.jpg 3495dafc
+097.jpg dbc55006
+098.jpg 6b7d2b2a
+099.jpg 1aa33be0
+100.jpg f2892ce2
+101.jpg 9b154c3b
+102.jpg c835c5af
+103.jpg 1996db1d
+104.jpg afbff421
+105.jpg 7002ef6c
+106.jpg 986a2112
+107.jpg 6a2c2b85
+108.jpg 4fef8a59
+109.jpg 8c8029a3
+110.jpg 32205f09
+111.jpg e029e025
+112.jpg 02887754
+113.jpg 375fc78d
+114.jpg 57f72d6c
+115.jpg 52b7e394
+116.jpg 359fac98
+117.jpg fbe8a0f1
+118.jpg 1311c194
+119.jpg fbd55d18
+120.jpg 6d60572e
+121.jpg d4069717
+122.jpg 04c027d4
+123.jpg 8bcd7635
+124.jpg 9b0d318a
+125.jpg 102598d9
+126.jpg 59af32fd
+127.jpg 0582b238
+128.jpg 5ac3075a
+129.jpg 1bde2ce6
+130.jpg 2fa4e57b
+131.jpg 2e705ce5
+132.jpg b0b499fd
+133.jpg 66b5018f
+134.jpg c682d16d
+135.jpg 14eca861
+136.jpg 7b810e44
+137.jpg 6436ed20
+138.jpg 2ae60faa
+139.jpg f63cfcb7
+140.jpg e563e5a6
+141.jpg 5fad4c91
+142.jpg 021ffd98
+143.jpg e243fc0f
+min.jpg 32913cd9
+scene.zbin ee2f9d90
+\
+/map2
+001.jpg f95e6f69
+002.jpg 78cbcb73
+003.jpg 228d6138
+004.jpg 23296559
+005.jpg cd7734a5
+006.jpg e943a84d
+007.jpg 9e95a313
+008.jpg f999b6dc
+009.jpg 18fc899f
+010.jpg 42cfe135
+011.jpg 3c4cadc4
+012.jpg 6d39ac92
+013.jpg 957133ec
+014.jpg 1a20a0fa
+015.jpg 29c18c04
+016.jpg c10cd5f2
+017.jpg e4e7b657
+018.jpg a004de9b
+019.jpg 676e70aa
+020.jpg 8449e540
+021.jpg 48db4d37
+022.jpg d95e07c2
+023.jpg efb07733
+024.jpg 2fa48ad4
+025.jpg 7e41b383
+026.jpg 3868a1a2
+027.jpg fbdc32d8
+028.jpg 38710097
+029.jpg aeef8a5e
+030.jpg 2f7c75aa
+031.jpg f114fb51
+032.jpg 83895465
+033.jpg e80fb44e
+034.jpg 1484db7e
+035.jpg 3de1f67b
+036.jpg 383014f7
+037.jpg 4fd8d471
+038.jpg 5d2acf22
+039.jpg afcb2875
+040.jpg bfb4f996
+041.jpg 6e543cf1
+042.jpg 2b14786e
+043.jpg 30e8c00e
+044.jpg 05507a8b
+045.jpg 88d210f4
+046.jpg 0afb6858
+047.jpg 6f5344a1
+048.jpg f6c760c4
+049.jpg 3c95c252
+050.jpg 831a5791
+051.jpg d648747c
+052.jpg 2650b934
+053.jpg 6aaff681
+054.jpg 81a57cf9
+055.jpg 4e74a87c
+056.jpg 1ad6d585
+057.jpg 5d105500
+058.jpg b2e2ee5f
+059.jpg 2561e422
+060.jpg ead0a266
+061.jpg d25c3549
+062.jpg 3a33c903
+063.jpg b336a1ac
+064.jpg 9c313111
+065.jpg 6c086b39
+066.jpg e2f93ce1
+067.jpg c4799898
+068.jpg f3e9eb30
+069.jpg c632810d
+070.jpg deeb1ea1
+071.jpg 5cc27bb3
+072.jpg 7f396972
+073.jpg 2fc58112
+074.jpg 55749134
+075.jpg 15607917
+076.jpg cf7b205a
+077.jpg 8cfd3fb5
+078.jpg e16897cf
+079.jpg 8ac32092
+080.jpg bac1bd4f
+081.jpg 1fd33363
+082.jpg f06bdefd
+083.jpg d8b75d19
+084.jpg 9ff56a27
+085.jpg 2ff06d5c
+086.jpg 55c4ce38
+087.jpg 387f83ba
+088.jpg 1b5665ff
+089.jpg 5073df94
+090.jpg 23dec530
+091.jpg e96254b8
+092.jpg 183b5ab6
+093.jpg 032f3886
+094.jpg 3533c259
+095.jpg a3cef3bc
+096.jpg 277b9730
+097.jpg e2f95505
+098.jpg bd1ec64f
+099.jpg 6699bee2
+100.jpg a587e448
+101.jpg 2e3f16ca
+102.jpg a340ddf6
+103.jpg 71f5e168
+104.jpg 6da17b82
+105.jpg 2fde3603
+106.jpg 7a6765c9
+107.jpg 9946bb65
+108.jpg 8713d6d1
+109.jpg 97f45864
+110.jpg 5017d5b0
+111.jpg 43dffd42
+112.jpg 4f2e4f60
+113.jpg 8841578a
+114.jpg 13e1de6c
+115.jpg 995394d2
+116.jpg d4a1cac3
+117.jpg 62b83665
+118.jpg 240e4569
+119.jpg 5b77df2f
+120.jpg e8c6b066
+121.jpg 948a4350
+122.jpg 270aa546
+123.jpg d3819a27
+124.jpg 986cebab
+125.jpg 22bfe474
+126.jpg e6a0cf3d
+127.jpg 2cdbd6c5
+128.jpg c91f901e
+129.jpg 7b9b8df1
+130.jpg 02aa1b8a
+131.jpg a7f621e5
+132.jpg d4c3f29a
+133.jpg 4d66ba06
+134.jpg d12bbd7f
+135.jpg f99bedd9
+136.jpg c4b99a67
+137.jpg 8381dd04
+138.jpg 5c951fd1
+139.jpg ad726669
+140.jpg 35d3594c
+141.jpg cad9fc3c
+142.jpg 11c8ba20
+143.jpg 6b625a64
+min.jpg 6aca5a7c
+scene.zbin fe77afb2
+\
+/map3
+001.jpg 6d987ce1
+002.jpg cf3fb53d
+003.jpg efd580ab
+004.jpg 785c20df
+005.jpg 58d05f4e
+006.jpg ae7c2269
+007.jpg e63206d0
+008.jpg 1abf4c61
+009.jpg 2297fbab
+010.jpg a27e4b4d
+011.jpg 4285c614
+012.jpg 8ef0bef7
+013.jpg 1ed5d40e
+014.jpg 9295807d
+015.jpg 13054667
+016.jpg e3016085
+017.jpg 6e35db24
+018.jpg 3adbfc9f
+019.jpg 0c24d488
+020.jpg db2c66f4
+021.jpg 08717dd0
+022.jpg f6b81c1f
+023.jpg 4344ff99
+024.jpg 458aa9b4
+025.jpg dc4ba4d3
+026.jpg 80d3c178
+027.jpg 8e04fe07
+028.jpg 542b658b
+029.jpg b42d49ef
+030.jpg 65be959b
+031.jpg 77720283
+032.jpg ea35e6b8
+033.jpg 15fb918f
+034.jpg 507b4032
+035.jpg 09acb9fc
+036.jpg f843d02e
+037.jpg 78afb681
+038.jpg a2e1cd44
+039.jpg 4ddf07d3
+040.jpg f603240e
+041.jpg 5f79e3ea
+042.jpg 648c26fb
+043.jpg 1321519e
+044.jpg 5ca0b9da
+045.jpg 63fd81a2
+046.jpg 58a65cfe
+047.jpg 27ef71a5
+048.jpg cd82d6ba
+049.jpg aabc291c
+050.jpg a4d694f1
+051.jpg 10156424
+052.jpg 6d9ac007
+053.jpg a8fe530d
+054.jpg 9111168e
+055.jpg f9fffacb
+056.jpg ec9f17ca
+057.jpg 568cacb7
+058.jpg 4b61c921
+059.jpg ae151384
+060.jpg 67d2b405
+061.jpg a83fea42
+062.jpg ed601526
+063.jpg b717971b
+064.jpg 5d7d6b10
+065.jpg 25900552
+066.jpg 501e73cf
+067.jpg 8c0479e6
+068.jpg 440e58ff
+069.jpg b9fc9469
+070.jpg 7f455581
+071.jpg de2b1f9e
+072.jpg 4a177dc2
+073.jpg 05599b6c
+074.jpg 29e615e0
+075.jpg 1fc675e8
+076.jpg 93a3a99c
+077.jpg 7991647f
+078.jpg 732ffac0
+079.jpg 54c90b95
+080.jpg b67c79c9
+081.jpg 66099bab
+082.jpg 0665d65c
+083.jpg 5806d863
+084.jpg c3e3cae3
+085.jpg bb364e73
+086.jpg bba1c21b
+087.jpg 3325785d
+088.jpg c92dc2ce
+089.jpg c6f33e92
+090.jpg c7c0f138
+091.jpg 90706584
+092.jpg c1408370
+093.jpg b83ce626
+094.jpg 61b6d484
+095.jpg 79e11583
+096.jpg 19dcb346
+097.jpg 4d15d8b3
+098.jpg 214aef2b
+099.jpg ba7fad72
+100.jpg 26658982
+101.jpg 3c8a1807
+102.jpg bc6d976b
+103.jpg fd3558a8
+104.jpg 29371820
+105.jpg 0e687bd0
+106.jpg 994a7d34
+107.jpg 790511ea
+108.jpg b19e490e
+109.jpg 83055c9a
+110.jpg abed2180
+111.jpg 2b5dcbbf
+112.jpg 6ca6c43c
+113.jpg 9b1a215d
+114.jpg a92aced0
+115.jpg c891c857
+116.jpg 7333b31e
+117.jpg 0e809105
+118.jpg 5bdee789
+119.jpg 0f418987
+120.jpg 13f6de6a
+121.jpg 208d318e
+122.jpg f1c15520
+123.jpg a706bf82
+124.jpg 7a3ea70f
+125.jpg 3da6d47d
+126.jpg c1e77764
+127.jpg 1698ff21
+128.jpg c387cc87
+129.jpg 5a6e2c01
+130.jpg 0e50bb89
+131.jpg c3b0df5d
+132.jpg a6ca590a
+133.jpg caa88eb8
+134.jpg efd2aa75
+135.jpg e63f19af
+136.jpg 7ccdca79
+137.jpg 93c18ea2
+138.jpg aa96fd42
+139.jpg a7904195
+140.jpg 243c3cd5
+141.jpg 264be394
+142.jpg 1eea912a
+143.jpg 1061c2d9
+desktop.ini ef353e49
+min.jpg 808bd440
+scene.zbin d10b80d6
+\
+/watchLight
+watchLight.atlas a7479e4a
+watchLight.png 38cdb9b5
+watchLight.zbin a7e052e3
+\
+\
+/shader
+sf_noise_clouds_01.png 4a42972c
+\
+/skillIcons
+icon_skill_huo_01.png c9517c89
+icon_skill_huo_02.png ac5e6bf1
+icon_skill_huo_03.png 1b20363d
+icon_skill_shui_01.png 0dc76c36
+\
+/spineA
+spineboy.png 9b471e48
+spineboy.sk 20ea3f29
+\
+/worldMap
+/chip
+worldmap_0001.png befa7da7
+worldmap_0002.png 0d8be8f1
+worldmap_0003.png 65ceeded
+worldmap_0004.png 5c9da549
+worldmap_0005.png 939c92fe
+worldmap_0006.png 3ec49073
+worldmap_0007.png 47636e37
+worldmap_0008.png 09087410
+worldmap_0009.png 71ba30dd
+worldmap_0010.png 1cf18e03
+worldmap_0011.png 53ebd6bf
+worldmap_0012.png 024c6d33
+worldmap_0013.png b0eff198
+worldmap_0014.png e15a0e9e
+worldmap_0015.png 1ef41e50
+worldmap_0016.png aeec902c
+worldmap_0017.png ac89303b
+worldmap_0018.png b5479dc8
+worldmap_0019.png eca197f8
+worldmap_0020.png c203c47e
+worldmap_0021.png dc1230fa
+worldmap_0022.png dd7fefaa
+worldmap_0023.png 41fbe432
+worldmap_0024.png e09d0817
+worldmap_0025.png 5e76020d
+worldmap_0026.png 82ae33af
+worldmap_0027.png 4c2e8bd8
+worldmap_0028.png 690f4bef
+worldmap_0029.png 9c1bb133
+worldmap_0030.png 2c6b853c
+worldmap_0031.png bdf5b042
+worldmap_0032.png 2bffe999
+worldmap_0033.png 060c663a
+worldmap_0034.png f066b86e
+worldmap_0035.png 04175aca
+worldmap_0036.png 48389592
+worldmap_0037.png e6f96770
+worldmap_0038.png d54be9c0
+worldmap_0039.png e87a029d
+worldmap_0040.png e83ffb13
+worldmap_0041.png 48acd30d
+worldmap_0042.png fb345601
+worldmap_0043.png 945550fb
+worldmap_0044.png 618986dc
+worldmap_0045.png 15499e87
+worldmap_0046.png ce5bb0e7
+worldmap_0047.png 13549474
+worldmap_0048.png 7a95c0c0
+worldmap_0049.png 3747d0ec
+worldmap_0050.png 59b9622d
+worldmap_0051.png f0c68cca
+worldmap_0052.png 0185c5b1
+worldmap_0053.png 95c32836
+worldmap_0054.png 581fc593
+worldmap_0055.png da31eb1c
+worldmap_0056.png f742a01c
+worldmap_0057.png 14fa2b80
+worldmap_0058.png 8f41ef64
+worldmap_0059.png f392b65d
+worldmap_0060.png 6817f600
+worldmap_0061.png 82b37b06
+worldmap_0062.png 12b35b37
+worldmap_0063.png 72821117
+worldmap_0064.png e0cf1690
+worldmap_0065.png 263b4fb4
+worldmap_0066.png 4549f359
+worldmap_0067.png b6613ff6
+worldmap_0068.png e27bcf6d
+worldmap_0069.png 59fd7c20
+worldmap_0070.png 5f4f14de
+worldmap_0071.png 7efb6050
+worldmap_0072.png e3ad13a8
+worldmap_0073.png 9d4a9729
+worldmap_0074.png 66daa5d3
+worldmap_0075.png f834e150
+worldmap_0076.png 864be40a
+worldmap_0077.png 157d4744
+worldmap_0078.png cc3e6cd3
+worldmap_0079.png 9af8a5b7
+worldmap_0080.png c9a570e4
+worldmap_0081.png 475783df
+worldmap_0082.png cf376a5e
+worldmap_0083.png fa35aba8
+worldmap_0084.png d417941d
+worldmap_0085.png 350ead9f
+worldmap_0086.png 8db949d7
+worldmap_0087.png 698f3e04
+worldmap_0088.png 632dea81
+worldmap_0089.png b6da827f
+worldmap_0090.png 19622f55
+worldmap_0091.png 14110a4d
+worldmap_0092.png 3b2dacba
+worldmap_0093.png e65caf72
+worldmap_0094.png 7a0521f2
+worldmap_0095.png b87999b3
+worldmap_0096.png 1bbdaf40
+worldmap_0097.png f3861352
+worldmap_0098.png b2c113b1
+worldmap_0099.png 56d2fcf7
+worldmap_0100.png 70b09427
+worldmap_0101.png 3af5c74f
+worldmap_0102.png bdffec35
+worldmap_0103.png a9597d84
+worldmap_0104.png 240ae06b
+worldmap_0105.png d52c4cf6
+worldmap_0106.png 31752ac0
+worldmap_0107.png 1d6952c5
+worldmap_0108.png d59c14dd
+worldmap_0109.png e7d49472
+worldmap_0110.png c64adc1b
+worldmap_0111.png b7450a0d
+worldmap_0112.png e7223845
+worldmap_0113.png 35f5e046
+worldmap_0114.png 4a8af7d5
+worldmap_0115.png 31806e9c
+worldmap_0116.png 64c3f055
+worldmap_0117.png 46ad8378
+worldmap_0118.png d4e7ed68
+worldmap_0119.png a90ab1e8
+worldmap_0120.png 8412c469
+worldmap_0121.png fb7b62ee
+worldmap_0122.png f3fdf3ee
+worldmap_0123.png 57d0f01b
+worldmap_0124.png fb7481e4
+worldmap_0125.png 2b8d4a8a
+worldmap_0126.png feaf62b3
+worldmap_0127.png acf66bec
+worldmap_0128.png 9d6b3c6b
+worldmap_0129.png 2788392f
+worldmap_0130.png 2e44727a
+worldmap_0131.png cba1c33e
+worldmap_0132.png a7c0877d
+worldmap_0133.png 227a89a0
+worldmap_0134.png 711e6f72
+\
+/map
+0001.jpg a6a16ce1
+0002.jpg 033fcf51
+0003.jpg 5a0ead19
+0004.jpg 9da12f3b
+0005.jpg 64f0e1d9
+0006.jpg db56d965
+0007.jpg cd49781a
+0008.jpg 629ffa51
+0009.jpg 3314d2a8
+0010.jpg 55326231
+0011.jpg 34565856
+0012.jpg bd3b2a41
+0013.jpg 0ee5711a
+0014.jpg d0fecf59
+0015.jpg 824cbcda
+0016.jpg 7cc1adf8
+0017.jpg 7be132d5
+0018.jpg 90450d79
+0019.jpg 6e034a5a
+0020.jpg 3c529b3e
+0021.jpg 3dc8b322
+0022.jpg e0917f09
+0023.jpg 8004083d
+0024.jpg 0452cb24
+0025.jpg 916afbe7
+0026.jpg e2b6ebd1
+0027.jpg a33f626c
+0028.jpg c0a9b6eb
+0029.jpg 8e18bdb2
+0030.jpg 31dd1cfe
+0031.jpg 0546aeaf
+0032.jpg db337292
+0033.jpg dfb748d6
+0034.jpg 29725b0d
+0035.jpg e236e7dd
+0036.jpg 54e71ec8
+0037.jpg 48c8f875
+0038.jpg 6ebdba3b
+0039.jpg e0b032dd
+0040.jpg 6b533396
+0041.jpg 5a30dd81
+0042.jpg af43f347
+0043.jpg a829de3d
+0044.jpg af6d9b38
+0045.jpg bbb86f95
+0046.jpg dd896705
+0047.jpg abcbac5e
+0048.jpg 1907b7e9
+0049.jpg 9472bf8b
+0050.jpg d58d6714
+0051.jpg f4911aec
+0052.jpg 76da0454
+0053.jpg a7e2209b
+0054.jpg f156cac3
+0055.jpg 741f7ad5
+0056.jpg 4024f3df
+0057.jpg 741a4dc3
+0058.jpg 22a5672a
+0059.jpg c6113528
+0060.jpg 2699a410
+0061.jpg d8a7fe90
+0062.jpg 030f82c5
+0063.jpg 84fce50a
+0064.jpg 0e786470
+0065.jpg e3f182a5
+0066.jpg 2f839ec5
+0067.jpg 2001ac9c
+0068.jpg 75b36559
+0069.jpg 2978b27a
+0070.jpg c98d476a
+0071.jpg cdbb02cc
+0072.jpg 3bcb43d3
+0073.jpg 764322c8
+0074.jpg 13b13cf9
+0075.jpg 5e50f95f
+0076.jpg 66eeb7bd
+0077.jpg 8efac8a9
+0078.jpg 33cee9ad
+0079.jpg 84a14430
+0080.jpg dde2a33e
+0081.jpg 674d0aca
+0082.jpg ab36cabd
+0083.jpg 9c3917b7
+0084.jpg 8693306b
+0085.jpg f3c26a30
+0086.jpg cc9890e6
+0087.jpg 24319c94
+0088.jpg fce61ae7
+0089.jpg 85555c0b
+0090.jpg 3c288f31
+0091.jpg a438c231
+0092.jpg 15d0ab00
+0093.jpg cf8169e2
+0094.jpg 14e62bbe
+0095.jpg 0a23bceb
+0096.jpg 3b3f51a8
+0097.jpg e87ddaf6
+0098.jpg 0f0d2a6c
+0099.jpg 9144c2e3
+0100.jpg f3cc3774
+0101.jpg 91ae56ff
+0102.jpg accead83
+0103.jpg aee1c6be
+0104.jpg 6303baad
+0105.jpg d5363cb4
+0106.jpg 4d543108
+0107.jpg 73754a72
+0108.jpg a9eec795
+0109.jpg 205165c2
+0110.jpg 87a91293
+0111.jpg a462d8cc
+0112.jpg 7811b3ff
+0113.jpg 4dddfb4e
+0114.jpg 6802a2c6
+0115.jpg 4316e984
+0116.jpg c00bc5d5
+0117.jpg 3f0f51bc
+0118.jpg a48d0a81
+0119.jpg 6f59de50
+0120.jpg 9b815b76
+0121.jpg 97533802
+0122.jpg ad72a188
+0123.jpg e6f7dd79
+0124.jpg 676655e3
+0125.jpg 5ba3ace5
+0126.jpg 2efff5a2
+0127.jpg 099f6464
+0128.jpg ca9e8224
+0129.jpg 8a897655
+0130.jpg 5560a7aa
+0131.jpg c3975153
+0132.jpg 6c692f88
+0133.jpg 161aed63
+0134.jpg e1517081
+0135.jpg c4bb83ab
+0136.jpg 37eb9156
+0137.jpg e021905e
+0138.jpg 72fe5891
+0139.jpg 1286bb34
+0140.jpg 624db1f2
+0141.jpg 9278bd14
+0142.jpg 7d5b4176
+0143.jpg 9df5d7e6
+0144.jpg 04090fb2
+min.jpg b15f455e
+\
+\
+\
+/uides
+/common
+/buttons
+AddButton.json 7625f556
+BtnCloseDownLine.json 6c41a9be
+BtnCloseUpLine.json 5dd64354
+ReturnButton.json cb2ad228
+\
+/currency
+CurrencySingle.json 04d5c938
+TopCurrency.json d15feeac
+\
+/fontClip
+fightFont.json e7d90f9d
+\
+/icons
+BigCommonIcon.json 3e60f621
+HugeCommonIcon.json fca2f0dd
+NameCommonIcon.json bec1dc84
+SexIcon.json ff37572a
+\
+/pet
+PetName.json f4ea6b0e
+\
+/player
+Avatar.json 928302ba
+\
+/progressBar
+ExpBar.json b1cc112d
+\
+/redDot
+RedDot.json 860ae326
+\
+/switcher
+Switcher01.json ea1108a0
+\
+/tabs
+IconTabItem.json 22bfee39
+IconTabLine.json 3273ab9e
+\
+/tips
+HelpTxtTip.json c80da412
+TipItem.json 719bdb79
+\
+\
+/core
+/catchElf
+CatchElf.json 52cb4c14
+CatchFailure.json 9204da26
+CatchLoading.json 8c9a3dc0
+CatchResult.json a253ce1d
+CatchWatchItem.json 6d8d560d
+\
+/combat
+BuffIcon.json 305b587f
+ChooseItem.json 68d83ed7
+CombatChoose.json c81c5e5b
+CombatLoading.json f64bc073
+CombatMain.json 3eeb5bb2
+CombatPet.json 63e16bf5
+CombatPopText.json a3a8e3a6
+CombatResult.json c4d781a6
+CombatValueBar.json 3c9f2f2d
+PetBottomRect.json a4935eac
+PetBottomRectLeft.json db8a0bb0
+PetBottomRectRight.json b48ebd4d
+PetFootCircle.json 7be5ef39
+StatusChangeTips.json 4e0d1ff9
+\
+/commonUI
+CommonGetElf.json 89baaa58
+CommonGetItem.json 6d58505f
+CommonGetProps.json 6d58505f
+\
+/loading
+FullScreenLoading.json d147eda0
+TinyLoading.json 645177f0
+\
+/login
+Login.json 72750517
+\
+/mainUI
+/catchElf
+CatchElf.json fa96f7e3
+CatchLoading.json 45028e2d
+CatchResult.json 58e3ac9a
+CatchWatchItem.json 6d8d560d
+\
+/chat
+ChatLine.json 7782c226
+ChatMain.json b7b498f5
+C_PetLine.json 7b984e5e
+PChatLine.json 1f788d77
+\
+/elfPet
+ElfAptItem.json 13c8a83b
+ElfAptItemShort.json 912db546
+ElfAttr.json 64e57ad7
+ElfAttrItem.json 4b2c3f62
+ElfAttrTab.json 8973f083
+ElfAwakeAptItem.json e321f2e7
+ElfAwakeIntoOne.json 5ceedf05
+ElfAwakeMoreGet.json 1b945fb0
+ElfAwakePetItem.json 01cc767d
+ElfAwakeSingleGet.json 589f8b8c
+ElfChangeName.json 85e54cd7
+ElfCharacterHelp.json 9d4da3c1
+ElfCharItem.json ab737029
+ElfClassTips.json 74582845
+ElfCupTips.json d810e406
+ElfFreedom.json 5ea9f05f
+ElfPetBag.json 96eacc1d
+ElfPetItem.json f1c44306
+ElfSkillIntroduce.json b7adb700
+ElfSkillItem.json 68a02431
+ElfSortItem.json 6da57e4c
+ElfStrategy.json 62f3645b
+ElfUpLvItemLine.json ffa35c83
+ElfUpWay.json 5c151c30
+/oneness
+ElfAptItemShort.json 912db546
+ElfAwakeAptItem.json e321f2e7
+ElfAwakeIntoOne.json 52850c51
+ElfAwakeMoreGet.json 20c8feb5
+ElfAwakePetItem.json 01cc767d
+ElfOnenessItem.json fa99fbda
+\
+\
+/friend
+FriendIcon.json 319941fb
+FriendLine.json a98273b2
+FriendLineShort.json 16f65444
+FriendlyIcon.json 9ab6133a
+FriendMain.json 9f5ab2ac
+FriendRemark.json cacd9513
+FriendReport.json 4a694253
+FriendRequest.json f7a9d216
+FriendScore.json a19334aa
+FriendSearch.json f23b5df4
+FriendSortDroplist.json be194f14
+FriendSortItem.json 877c7941
+ReportLine.json 12de2d1e
+RewardLine.json 8b3188ae
+\
+/fusion
+CD.json b2acbc0c
+FusionMain.json 20b753c5
+\
+/hang
+HangOffLineReward.json ef084b8f
+HangQuickCombat.json d663edd2
+HangSet.json 6118cd81
+\
+/illusBook
+IllusBookChapterInfo.json aa4b18b9
+IllusBookChapterItem.json 24ca334f
+IllusBookChapterList.json fda5c7a8
+IllusBookChapters.json 0d14c6a0
+IllusBookElf.json f74b4e5f
+IllusBookElfInfo.json e9cb9c16
+IllusBookElfItem.json b8993be7
+IllusBookFile.json 0d14c6a0
+IllusBookGetWayItem.json d590cb98
+IllusBookSelectItem.json 1259c4ac
+IllusBookStory.json 4d6dc050
+IllusBookStoryItem.json 094a436b
+/materials
+IllusBookMaterials.json 8e81d341
+IllusBookPeculiarity.json 4e634da4
+\
+\
+/itemBag
+BagExpansion.json 6c105381
+ItemBag.json c9a2cdbd
+ItemDetail.json 42da1fd0
+MutiUse.json d7ec8dcc
+RemoveItem.json ef70d6e8
+\
+/main
+ChatArea.json 384b4aff
+Main.json 48085b1a
+MainBottom.json c813cfb7
+MainIllusBook.json 252b7de5
+NoticeTip.json 421fcd86
+\
+/roleSys
+HeadFrame.json 20a72d34
+HeadFrameItem.json 4aec4166
+RoleAchieveItem.json e223bc5a
+RoleAchieveListDouble.json 567d171e
+RoleAchieveListSingle.json 55d6e15b
+RoleChangeGender.json 526947a3
+RoleChangeName.json 73ad9f4b
+RoleDressItem.json fc7da295
+RoleDressUp.json 0686d78b
+RoleEntranceItem.json 395d57da
+RoleInfo.json 97726115
+RoleWing.json c9f8c514
+\
+\
+/popup
+CommonGetElf.json 168b292d
+CommonGetProps.json 402886c9
+FightValueChange.json efb61aee
+GetWay.json 28921d26
+GetWayItem.json b601bccb
+HelpPropTip.json 9a178927
+HelpTxtTip.json 73e7c3f0
+HelpTxtTipSmall.json b9a8cc0b
+PackageShow.json 7fe849ab
+RoleLvUp.json 02a0d4b6
+RuleDescription.json b52c3169
+ScreenWhite.json 265a8a1c
+SecondConfirm.json 46074282
+TipItem.json d7614850
+TipNumPropItem.json 047e052d
+UnlockSys.json cea2e7c4
+\
+/scene
+GatherProBar.json d698a38a
+PetFootCircle.json a895a40a
+\
+\
+/features
+/test
+Test.json 73da5ed5
+TestCommonUI.json 13081875
+\
+/worldMap
+WorldMap.json f32b2d91
+\
+\
+\
+/uipic
+/core
+/catchElf
+bg_line.png e32c782c
+bg__k_di2_hui.png 41e71a65
+/catchIt
+bg_bz_ditu.png 28db709d
+\
+icon_yhtt.png edaee2ca
+/loading
+4-1.png 286dd869
+5.png 59ca985c
+7.png a77b40f7
+bg_touming_di_2.png ec18c95c
+waiquan.png f7997520
+xingguang.png 1e3b9916
+\
+propFly.png 06ecddac
+\
+/combat
+bg_dazhao01.png 503c4b29
+bg_top.png 7c61dd20
+bg_zezhao.png 01b4789b
+bg_zhandoukaishi.png cd6efb07
+dazhao_lines.png 2ceac8f3
+dazhao_mask.png 86653b3e
+fight_bg.jpg eb2ad21d
+nu_10.png fc659f75
+nu_huiheshu_01.png 8d2f1c82
+/result
+bg_k_01.png 44ead745
+icon_caidai_03.png ab6e9e69
+\
+\
+/common
+bg01.jpg 7f748784
+bg_01.jpg 757ae88d
+bg_01.png ba52926a
+bg_02.jpg 46539b30
+bg_03.jpg 2ab45309
+bg_03_2.png 6e7aa8a4
+bg_04.jpg 13107974
+bg_bottom.png ea9da81b
+bg_di_guangquan.png 58782732
+bg_d_zhezhao.png e676a652
+bg_gushitoujian.png f4d65352
+bg_juesexitong.jpg 61ac1d9a
+bg_kuaxian.png 2c623b84
+bg_k_dibubantou.png 53095bd4
+bg_k_tanchuang.png 3ab8d5fc
+bg_k_tanchuang02.png e8da5933
+bg_k_xinxi.png fe7b21fc
+bg_leida.png b393b2c4
+bg_line.png f69e9040
+bg_line03.png 934d2132
+bg_mask.png 06ba4176
+bg_shu.png e02fe3a2
+bg_touxiang.png 2c655017
+bg_zhanli_01.png 700ed103
+nu_zhandouli_01.png a343af48
+\
+/loading
+bg4.jpg cefdd6a0
+\
+\
+/features
+/common
+TestParticle.part 7872483b
+\
+/elfPet
+bg_quan02.png 12a8ffb5
+\
+/fusion
+bg_bg_k_jiagong_di2.png 6c02167d
+bg_k_jiagong_di.png 044cc8f1
+\
+/getElf
+bg_attr_quan01.png 021fcf94
+bg_dimian.png 7f670013
+bg_huxideng.png f6a9614e
+bg_quan04.png ac2a8f2c
+elfAniMask.png 1dee880c
+guang.png 2a85197c
+\
+/illusBook
+banner0.png 5855461f
+banner1.png 6baca090
+banner2.png 9bca00f3
+banner3.png fb0c08b4
+/materials
+bg_k_xiaodi_yanshen.png caf5cb2d
+\
+\
+/itemGet
+bg_02.png 2297b4f2
+bg_line.png 5bfa0f1d
+\
+/mainUI
+bg_top.png c02fc532
+主界面.jpg 2ae617a7
+\
+/roleUpLv
+bg_01.png 0e630063
+\
+/test
+test1.png b80f0965
+test2.png dfa57e6a
+\
+/unlockSys
+icon_guang.png 8bb686b8
+\
+\
+texture.png 8a28f5b1
+unpack.json d40ca7e2
+\
+/uires
+.rec 5994b9a5
+/core
+/catchElf
+boom.atlas 0a24a22e
+boom.png 41caf6c1
+catchIt.atlas d9a20b07
+catchIt.png fb8c699e
+loading.atlas 389fe460
+loading.png e69698ea
+\
+catchElf.atlas ff84a3cb
+catchElf.png 6935141f
+/combat
+loading.atlas 95cfa166
+loading.png 70f553e8
+result.atlas 2f544267
+result.png 1a9c9539
+\
+combat.atlas 8226671a
+combat.png 3cbf2f0a
+common.atlas 04b430d0
+common.png 1f753cc4
+loading.atlas c3af2156
+loading.png d16dc057
+login.atlas de12bc2f
+login.png 976ab327
+scene.atlas d92264cd
+scene.png 9793658b
+\
+/features
+achieve.atlas 365496f4
+achieve.png 59a5032a
+badge.atlas a1bf7880
+badge.png 2c497e44
+changeGender.atlas 24d0ba32
+changeGender.png ea5ab9a8
+/chat
+face.atlas d0d2a7e5
+face.png b8e74903
+\
+chat.atlas a3261524
+chat.png 9db13cfa
+/elfPet
+awake.atlas 31312f10
+awake.png db9fab12
+oneness.atlas 19b3e158
+oneness.png db9fab12
+\
+elfPet.atlas 0df361d4
+elfPet.png a596ef44
+friend.atlas 99c826d2
+friend.png 2a4bf0da
+fusion.atlas 95758155
+fusion.png 2a69ee0a
+getElf.atlas 9d8ce7c9
+getElf.png 720a9add
+hang.atlas aa84b57d
+hang.png ac9ed61a
+/illusBook
+materials.atlas 36c87ba8
+materials.png 5c1584be
+\
+illusBook.atlas 37f48d81
+illusBook.png 2e041c3f
+itemBag.atlas 02cd5a0f
+itemBag.png 08970aac
+itemGet.atlas 86b6d560
+itemGet.png e823cc05
+mainUI.atlas 87f8d323
+mainUI.png e02ba582
+roleSys.atlas bba50788
+roleSys.png c50a78f4
+roleUpLv.atlas 53776992
+roleUpLv.png 33c57089
+unlockSys.atlas 0179591c
+unlockSys.png fb53ffa6
+\
+test.atlas 16e3fffc
+test.png ae653210
+\

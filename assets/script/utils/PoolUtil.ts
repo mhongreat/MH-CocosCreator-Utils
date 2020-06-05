@@ -1,32 +1,44 @@
-/** 
- * 对象池枚举
- */
-export enum PoolEnum {
+/** 对象池枚举 */
+export enum EPoolName {
     MOU,
     HONG
 }
 
-/** 
- * 对象池工具类
- */
+/** 对象池工具类 */
 export class PoolUtil {
-    static _ctor = PoolUtil.clear();
-    static _prefabs: Map<PoolEnum, cc.Prefab> = new Map();
-    static _pools: Map<PoolEnum, cc.NodePool> = new Map();
+
+    private prefabs: Map<EPoolName, cc.Prefab> = new Map();
+    private pools: Map<EPoolName, cc.NodePool> = new Map();
+    private static _inst: PoolUtil = null;
+    public static get inst() {
+        if (!PoolUtil._inst) {
+            PoolUtil._inst = new PoolUtil();
+        }
+        return PoolUtil._inst;
+    }
+    private constructor() {
+        cc.director.on(cc.Director.EVENT_BEFORE_SCENE_LAUNCH, () => {
+            this.pools.forEach(pool => {
+                pool.clear();
+            });
+            this.prefabs.clear();
+            this.pools.clear();
+        });
+    }
 
     /**
-     * 初始化一个对象池
-     * @param poolName 对象池名字
-     * @param prefab 预制体
-     * @param num 初始化节点数量
+     * 初始化一个对象池
+     * @param poolName 对象池名字
+     * @param prefab 预制体
+     * @param num 初始化节点数量
      */
-    static initPool(poolName: PoolEnum, prefab: cc.Prefab, num: number = 10) {
-        if (!PoolUtil._pools.has(poolName)) {
+    initPool(poolName: EPoolName, prefab: cc.Prefab, num: number = 10) {
+        if (!this.pools.has(poolName)) {
             let pool = new cc.NodePool();
-            PoolUtil._prefabs.set(poolName, prefab);
-            PoolUtil._pools.set(poolName, pool);
+            this.prefabs.set(poolName, prefab);
+            this.pools.set(poolName, pool);
             for (let i = 0; i < num; i++) {
-                PoolUtil._pools.get(poolName).put(cc.instantiate(prefab));
+                this.pools.get(poolName).put(cc.instantiate(prefab));
             }
         } else {
             console.warn("请勿重复创建对象池!");
@@ -34,16 +46,16 @@ export class PoolUtil {
     }
 
     /**
-     * 从对象池中获取节点
-     * @param poolName 对象池名字
+     * 从对象池中获取节点
+     * @param poolName 对象池名字
      */
-    static get(poolName: PoolEnum) {
-        if (PoolUtil._pools.has(poolName)) {
-            let pool = PoolUtil._pools.get(poolName);
+    get(poolName: EPoolName) {
+        if (this.pools.has(poolName)) {
+            let pool = this.pools.get(poolName);
             if (pool.size() > 0) {
                 return pool.get();
             } else {
-                return cc.instantiate(PoolUtil._prefabs.get(poolName));
+                return cc.instantiate(this.pools.get(poolName));
             }
         } else {
             console.error("对象池不存在!");
@@ -51,13 +63,13 @@ export class PoolUtil {
     }
 
     /**
-     * 回收节点
-     * @param poolName 对象池名字
-     * @param nodeRes 节点或节点数组
+     * 回收节点
+     * @param poolName 对象池名字
+     * @param nodeRes 节点或节点数组
      */
-    static put(poolName: PoolEnum, nodeRes: cc.Node | cc.Node[]) {
-        if (PoolUtil._pools.has(poolName)) {
-            let pool = PoolUtil._pools.get(poolName);
+    put(poolName: EPoolName, nodeRes: cc.Node | cc.Node[]) {
+        if (this.pools.has(poolName)) {
+            let pool = this.pools.get(poolName);
             if (nodeRes instanceof Array) {
                 nodeRes.forEach(node => {
                     pool.put(node);
@@ -69,18 +81,4 @@ export class PoolUtil {
             console.error("对象池不存在!");
         }
     }
-
-    /**
-     * 切换场景时释放节点池资源
-     */
-    static clear() {
-        cc.director.on(cc.Director.EVENT_BEFORE_SCENE_LAUNCH, () => {
-            PoolUtil._pools.forEach(pool => {
-                pool.clear();
-            });
-            PoolUtil._prefabs.clear();
-            PoolUtil._pools.clear();
-        });
-    }
 }
-

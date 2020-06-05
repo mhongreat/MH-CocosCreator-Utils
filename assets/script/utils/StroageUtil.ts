@@ -1,21 +1,47 @@
 
 /**
+ * 本地存储键枚举
+ */
+export enum EStroageKey {
+    TestObject = "TestObject"
+}
+
+/**
  * 本地存储工具类
  */
 export class StroageUtil {
 
+    private constructor() { }
+    private static _inst: StroageUtil = null;
+    public static get inst() {
+        if (!StroageUtil._inst) {
+            StroageUtil._inst = new StroageUtil();
+        }
+        return StroageUtil._inst;
+    }
     /**
      * 获取number类型的本地存储值
      */
-    static getNumber(key: StroageEnum, defaultValue: number): number {
+    getNumber(key: EStroageKey, defaultValue: number): number {
         let value = parseFloat(cc.sys.localStorage.getItem(key));
         return isNaN(value) ? defaultValue : value;
     }
 
     /**
+     * 获取string类型的本地存储值
+     */
+    getString(key: EStroageKey, defaultValue: string): string {
+        let value = cc.sys.localStorage.getItem(key) + "";
+        if (value != null && value != undefined) {
+            return value;
+        }
+        return defaultValue;
+    }
+
+    /**
      * 获取boolean类型的本地存储值
      */
-    static getBoolean(key: StroageEnum, defaultValue: boolean): boolean {
+    getBoolean(key: EStroageKey, defaultValue: boolean): boolean {
         let value = cc.sys.localStorage.getItem(key) + "";
         if (value != "true" && value != "false") {
             return defaultValue;
@@ -27,7 +53,7 @@ export class StroageUtil {
     /**
      * 获取object类型的本地存储值
      */
-    static getObject(key: StroageEnum, defaultValue: object): object {
+    getObject(key: EStroageKey, defaultValue: object): object {
         let value = cc.sys.localStorage.getItem(key);
         try {
             value = JSON.parse(value);
@@ -41,21 +67,11 @@ export class StroageUtil {
     /**
      * 设置本地存储值
      */
-    static setValue(key: StroageEnum, value: any) {
+    setValue(key: EStroageKey, value: number | string | boolean | object) {
         if (typeof value == "object") {
             value = JSON.stringify(value);
         }
         cc.sys.localStorage.setItem(key, value);
     }
 
-}
-
-/**
- * 本地存储键枚举
- */
-export enum StroageEnum {
-    AudioSwitch = "AudioSwitch",
-    MusicSwitch = "MusicSwitch",
-    EffectSwitch = "EffectSwitch",
-    TestObject = "TestObject"
 }

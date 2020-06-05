@@ -1,20 +1,13 @@
 
+export default class Test {
 
-const { ccclass, property } = cc._decorator;
-
-@ccclass
-export default class Test extends cc.Component {
-
-
-
-    onEnable() {
-
-
-
+    constructor(){
+        this.say();
     }
 
-    click() {
-
+    say(){
+        console.log("hello everyone");
+        
     }
 
 }

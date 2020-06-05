@@ -194,5 +194,3 @@ declare namespace wx {
      */
     export function triggerGC();
 }
-
-declare let protobuf;
