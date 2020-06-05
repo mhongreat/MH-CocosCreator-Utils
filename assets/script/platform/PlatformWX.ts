@@ -1,13 +1,14 @@
 import { PlatformBase } from "./PlatformBase";
 
+/** 微信小游戏平台相关方法的实现 */
 export class PlatformWX extends PlatformBase {
 
     systemInfo = null;//系统信息
     launchInfo = null;//启动游戏信息
     shareTitle = "【斗地主合集】好友约场永久免费，叫上朋友一起来吧~";//默认分享标题
     shareImageUrl = "https://web.bzw.cn/wechatgame/doudizhu/sharepic/share2.png";//默认分享图片
-
     adUnitId = { V_SIGN: "", B_LOTTERY: "" }
+
     constructor() {
         super();
         this.systemInfo = wx.getSystemInfoSync();

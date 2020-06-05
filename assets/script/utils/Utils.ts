@@ -1,7 +1,7 @@
 /**
  * 常用的一些方法集合
  */
-export default class Utils {
+export class Utils {
     /**
     * 加载远程图片
     * @param sprite 目标Sprite组件 
@@ -11,10 +11,10 @@ export default class Utils {
         cc.loader.load({ url: url, type: "png" }, (err, texture) => {
             if (err) {
                 console.error(err);
-                return;
+            }else{
+                let spFrame = new cc.SpriteFrame(texture);
+                sprite.spriteFrame = spFrame;
             }
-            let spFrame = new cc.SpriteFrame(texture);
-            sprite.spriteFrame = spFrame;
         });
     }
 
@@ -24,12 +24,13 @@ export default class Utils {
      * @param url 本地图片路径（不带扩展名）
      */
     static loadLocalPic(sprite: cc.Sprite, url: string) {
-        cc.loader.loadRes(url, cc.SpriteFrame, function (err, spFrame) {
+        cc.loader.loadRes(url, cc.SpriteFrame, function (err, spFrame:cc.SpriteFrame) {
             if (err) {
                 console.error(err);
                 return;
+            }else{
+                sprite.spriteFrame = spFrame;
             }
-            sprite.spriteFrame = spFrame;
         });
     }
 
@@ -66,6 +67,7 @@ export default class Utils {
      * @param dt 每帧用于加载的耗时,单位：ms
      */
     static frameLoad(gen: Generator, dt = 3) {
+        let canvas = cc.find("Canvas").getComponent(cc.Canvas);
         let p = new Promise((resolve, reject) => {
             let execute = () => {
                 let d1 = Date.now();
@@ -81,7 +83,7 @@ export default class Utils {
                     }
                     let d2 = Date.now();
                     if (d2 - d1 >= dt) {
-                        new cc.Component().scheduleOnce(execute);
+                        canvas.scheduleOnce(execute);
                         break;
                     }
                 }
