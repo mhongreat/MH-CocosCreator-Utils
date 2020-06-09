@@ -11,11 +11,12 @@ export class PoolUtil {
     private pools: Map<EPoolName, cc.NodePool> = new Map();
     private static _inst: PoolUtil = null;
     public static get inst() {
-        if (!PoolUtil._inst) {
-            PoolUtil._inst = new PoolUtil();
+        if (!this._inst) {
+            this._inst = new PoolUtil();
         }
-        return PoolUtil._inst;
+        return this._inst;
     }
+    
     private constructor() {
         cc.director.on(cc.Director.EVENT_BEFORE_SCENE_LAUNCH, () => {
             this.pools.forEach(pool => {

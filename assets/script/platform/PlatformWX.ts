@@ -283,18 +283,17 @@ export class PlatformWX extends PlatformBase {
      * @param sCnt 展示次数
      * @param preload 预加载banner 默认false直接展示banner
      */
-    addBanner(obj:{adKey: string, posNode?: cc.Node, width?:number, sCnt?:number, preload?:number}) {
-        let adUnitId = this.adUnitId[obj.adKey];
-        let posNode = obj.posNode;
-        let width = cc.misc.clampf(obj.width,300,this.systemInfo.screenHeight);
-        let sCnt = obj.sCnt||2;
-        let preload = obj.preload;
+    addBanner(obj: { adKey: string, posNode?: cc.Node, width?: number, sCnt?: number, preload?: number }) {
+        let { adKey, posNode, width, sCnt, preload } = obj;
+        let adUnitId = this.adUnitId[adKey];
+        width = cc.misc.clampf(width, 300, this.systemInfo.screenHeight);
+        sCnt = obj.sCnt || 2;
         this.hideAllBanner();
         let resetTop = banner => {
             if (posNode) {
                 banner.style.top = this.systemInfo.screenHeight * (1 - posNode.getBoundingBoxToWorld().yMin / cc.winSize.height);
             } else {
-                banner.style.top = this.systemInfo.screenHeight - Math.ceil(banner.style.realHeight)-2;
+                banner.style.top = this.systemInfo.screenHeight - Math.ceil(banner.style.realHeight) - 2;
             }
         };
         if (!this.bannerCache[adUnitId] || this.bannerCache[adUnitId].sCnt <= 0) {//banner不存在或剩余显示次数为0
@@ -338,8 +337,8 @@ export class PlatformWX extends PlatformBase {
     /**
      * 添加插屏广告   
      */
-    addInterstitial(obj:{adKey: string}) {
-        let adUnitId = this.adUnitId[obj.adKey]; 
+    addInterstitial(obj: { adKey: string }) {
+        let adUnitId = this.adUnitId[obj.adKey];
         if (this.compareVersion("2.6.0")) {
             if (!this.interstitial) {
                 this.interstitial = wx.createInterstitialAd({ adUnitId: adUnitId });
@@ -384,7 +383,7 @@ export class PlatformWX extends PlatformBase {
             });
         }
     }
-    
+
     /**
      *  判断系统SDK版本是否符合最低版本要求
      * @ver 最低SDK版本要求

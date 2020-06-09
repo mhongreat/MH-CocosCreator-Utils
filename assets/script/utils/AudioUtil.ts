@@ -1,5 +1,5 @@
 /** 音频加载路径枚举 */
-export enum AudioConst {
+export enum EAudio {
         //音乐
         M_BGM = "bgm",
         //音效
@@ -8,7 +8,7 @@ export enum AudioConst {
     
     /** 音频管理工具类 */
     export class AudioUtil {
-    
+        
         public bMusic: boolean = true;
         public bEffect: boolean = true;
         private sMusicKey: string = "MusicSwitch";
@@ -16,10 +16,10 @@ export enum AudioConst {
         
         private static _inst: AudioUtil = null;
         public static get inst() {
-            if(!AudioUtil._inst){
-                AudioUtil._inst = new AudioUtil();
+            if(!this._inst){
+                this._inst = new AudioUtil();
             }
-            return AudioUtil._inst;
+            return this._inst;
         }
        
         private constructor() {

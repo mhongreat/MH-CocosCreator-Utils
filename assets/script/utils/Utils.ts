@@ -8,10 +8,10 @@ export class Utils {
     * @param url 远程图片路径（带扩展名）
     */
     static loadRemotePic(sprite: cc.Sprite, url: string) {
-        cc.loader.load({ url: url, type: "png" }, (err, texture) => {
+        cc.assetManager.loadRemote(url, (err, texture) => {
             if (err) {
                 console.error(err);
-            }else{
+            } else {
                 let spFrame = new cc.SpriteFrame(texture);
                 sprite.spriteFrame = spFrame;
             }
@@ -24,12 +24,11 @@ export class Utils {
      * @param url 本地图片路径（不带扩展名）
      */
     static loadLocalPic(sprite: cc.Sprite, url: string) {
-        cc.loader.loadRes(url, cc.SpriteFrame, function (err, spFrame:cc.SpriteFrame) {
+        cc.resources.load(url, cc.SpriteFrame, (err, texture: any) => {
             if (err) {
                 console.error(err);
-                return;
-            }else{
-                sprite.spriteFrame = spFrame;
+            } else {
+                sprite.spriteFrame = texture;
             }
         });
     }

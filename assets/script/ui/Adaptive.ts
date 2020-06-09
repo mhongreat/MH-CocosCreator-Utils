@@ -29,9 +29,6 @@ export default class Adaptive extends cc.Component {
                 canvas.fitHeight = size.width>size.height;//横屏适配高度
             }
         }
-    }
-
-    start(){
         let sprite = this.getComponent(cc.Sprite);
         if(sprite){
             //背景图适配根据所选适配方式，默认自动适配去除黑边

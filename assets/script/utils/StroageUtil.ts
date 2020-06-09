@@ -9,15 +9,16 @@ export enum EStroageKey {
 /**
  * 本地存储工具类
  */
-export class StroageUtil {
+export class LocalCache {
 
     private constructor() { }
-    private static _inst: StroageUtil = null;
+    private static _inst: LocalCache = null;
     public static get inst() {
-        if (!StroageUtil._inst) {
-            StroageUtil._inst = new StroageUtil();
+        if (!this._inst) {
+            this._inst = new LocalCache();
+            cc.sys.localStorage
         }
-        return StroageUtil._inst;
+        return this._inst;
     }
     /**
      * 获取number类型的本地存储值

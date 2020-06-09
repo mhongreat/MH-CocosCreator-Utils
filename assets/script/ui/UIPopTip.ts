@@ -1,14 +1,14 @@
 /** 
  * 提示信息工具类
  */
-export class TipMessage {
+export class UIPopTip {
     private constructor() { }
-    private static _inst: TipMessage = null;
+    private static _inst: UIPopTip = null;
     public static get inst() {
-        if (!TipMessage._inst) {
-            TipMessage._inst = new TipMessage();
+        if (!this._inst) {
+            this._inst = new UIPopTip();
         }
-        return TipMessage._inst;
+        return UIPopTip._inst;
     }
 
     /*  
@@ -32,11 +32,11 @@ export class TipMessage {
         if (this.tip && this.tip.isValid) {
             this.tip.stopAllActions();
         }
-        cc.resources.load("path",cc.Prefab,null,(err,prefab:cc.Prefab)=>{
-            if(err){
+        cc.resources.load("path", cc.Prefab, null, (err, prefab: cc.Prefab) => {
+            if (err) {
                 console.error(err);
-            }else{
-                if(!this.tip||!this.tip.isValid){
+            } else {
+                if (!this.tip || !this.tip.isValid) {
                     this.tip = cc.instantiate(prefab);
                 }
                 this.tip.opacity = 255;
@@ -58,11 +58,11 @@ export class TipMessage {
      * @param opts 确认和取消按钮回调
      */
     showTipBox(content: string, boxType = 1, opts: { cbConfirm?: Function, cbCancel?: Function } = {}) {
-        cc.resources.load("path",cc.Prefab,null,(err,prefab:cc.Prefab)=>{
-            if(err){
+        cc.resources.load("path", cc.Prefab, null, (err, prefab: cc.Prefab) => {
+            if (err) {
                 console.error(err);
-            }else{
-                if(!this.tipBox||!this.tipBox.isValid){
+            } else {
+                if (!this.tipBox || !this.tipBox.isValid) {
                     this.tipBox = cc.instantiate(prefab);
                 }
                 this.tipBox.zIndex = this.tipBoxZindex;
