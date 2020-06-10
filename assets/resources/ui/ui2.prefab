@@ -611,6 +611,7 @@
     "_enabled": true,
     "destroyNode": false,
     "showShade": true,
+    "cover": false,
     "blockInputEvent": true,
     "showAction": 3,
     "closeBtn": {

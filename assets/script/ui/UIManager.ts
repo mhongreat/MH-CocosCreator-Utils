@@ -15,16 +15,16 @@ export class UIManager {
 
     private uiDict: { [name: string]: UIBase } = {};
     private uiStack: UIBase[] = [];
-    /** ui完全打开和关闭前，处于冷却中，避免重复操作 */
-    private cooldown = false;
+    private cooldown = false;//ui打开和关闭时进入冷却
+    /** 半透明遮罩 */
+    private shade: cc.Node = null;
     /** 普通的ui页面 */
     private normalLayer: cc.Node = null;
     /** 比较上层的ui界面(如提示信息、引导、loading遮罩等)不参与ui堆栈 */
     private higherLayer: cc.Node = null;
 
-    private shade: cc.Node = null;//半透明遮罩
 
-    private init() {
+    public init() {
         EventManager.on(GameEvent.OpenUI, this.openUI, this);
         EventManager.on(GameEvent.CloseUI, this.closeUI, this);
 
@@ -36,13 +36,14 @@ export class UIManager {
         this.higherLayer.setContentSize(cc.winSize);
         canvas.addChild(this.higherLayer);
 
-        //上层ui直接在此初始化
-        //this.higherLayer.addChild()
+        //添加上层ui
 
+        //this.higherLayer.addChild()
     }
 
+
     public async openUI(name: EUIName, args?: any) {
-        if (this.cooldown) return;
+        if(this.cooldown) return;
         this.cooldown = true;
         let ui = await this.initUI(name);
         ui.setUIName(name);
@@ -52,20 +53,22 @@ export class UIManager {
         this.uiStack.push(ui);
         this.setShade();
         await ui.open();
+        this.setUIVisible(ui.cover, false);
         this.cooldown = false;
         return ui;
     }
 
     public async closeUI(name: EUIName) {
-        if (this.cooldown) return;
+        if(this.cooldown) return;
         if (this.isTop(name)) {
             this.cooldown = true;
             let ui = this.uiStack.pop();
             this.setShade();
+            this.setUIVisible(ui.cover, true);
             await ui.close();
             if (ui.destroyNode) {
                 ui.destroy();
-                this.uiDict[name] = undefined;
+                delete this.uiDict[name];
             } else {
                 ui.node.parent = null;
             }
@@ -112,7 +115,7 @@ export class UIManager {
 
     public getTopUI() {
         let stackLen = this.uiStack.length;
-        if (stackLen) {
+        if (stackLen > 0) {
             let ui = this.uiStack[stackLen - 1];
             return ui;
         }
@@ -126,7 +129,7 @@ export class UIManager {
         return -1;
     }
 
-    public setShade() {
+    private setShade() {
         let callback = () => {
             this.shade.parent = null;
             let ui = this.getTopUI();
@@ -143,9 +146,21 @@ export class UIManager {
         } else {
             callback();
         }
-
     }
 
+    private setUIVisible(cover: boolean, show: boolean) {
+        if (!cover) return;
+        let stackLen = this.uiStack.length;
+        if (show) {//关闭UI显示下层UI
+            let ui = this.getTopUI();
+            ui && ui.setOpacity(255);
+        } else {//打开UI时隐藏下层UI
+            if (stackLen >= 2) {
+                let ui = this.uiStack[stackLen - 2];
+                ui.setOpacity(0);
+            }
+        }
+    }
 
 
 }
