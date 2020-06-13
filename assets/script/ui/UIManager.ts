@@ -83,6 +83,7 @@ export class UIManager {
         } else {
             console.warn("请根据UI栈的规则,先进后出");
         }
+        return true;
     }
 
     public async initUI(name: EUIName) {

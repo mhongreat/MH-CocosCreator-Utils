@@ -8,13 +8,13 @@ export enum EStroageKey {
 /**
  * 本地存储工具类
  */
-export class LocalCache {
+export class StroageUtil {
 
     private constructor() { }
-    private static _inst: LocalCache = null;
+    private static _inst: StroageUtil = null;
     public static get inst() {
         if (!this._inst) {
-            this._inst = new LocalCache();
+            this._inst = new StroageUtil();
         }
         return this._inst;
     }

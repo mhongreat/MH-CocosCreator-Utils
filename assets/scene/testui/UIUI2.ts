@@ -1,5 +1,5 @@
 const {ccclass,property} = cc._decorator;
-import UIBase from "./ui/UIBase";
+import  UIBase from "../../script/ui/UIBase";
 
 
 @ccclass
