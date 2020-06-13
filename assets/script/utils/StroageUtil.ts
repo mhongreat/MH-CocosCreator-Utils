@@ -1,4 +1,3 @@
-
 /**
  * 本地存储键枚举
  */
@@ -16,7 +15,6 @@ export class LocalCache {
     public static get inst() {
         if (!this._inst) {
             this._inst = new LocalCache();
-            cc.sys.localStorage
         }
         return this._inst;
     }

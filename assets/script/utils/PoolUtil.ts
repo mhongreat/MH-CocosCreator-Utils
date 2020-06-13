@@ -56,7 +56,7 @@ export class PoolUtil {
             if (pool.size() > 0) {
                 return pool.get();
             } else {
-                return cc.instantiate(this.pools.get(poolName));
+                return cc.instantiate(this.prefabs.get(poolName));
             }
         } else {
             console.error("对象池不存在!");

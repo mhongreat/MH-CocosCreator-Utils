@@ -6,13 +6,13 @@ const {ccclass, property} = cc._decorator;
 export default class NewClass extends cc.Component {
 
     async start () {
-        
+        UIManager.inst.init();
     }
     
     onclick(){
         console.log("onclick");
-
-        UIManager.inst.openUI(EUIName.UI1);
+         
+        UIManager.inst.tipMseeage.showTipBox("你好啊啊  啊啊啊啊啊");
         
     }
     

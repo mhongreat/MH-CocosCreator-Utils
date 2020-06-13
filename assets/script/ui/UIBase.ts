@@ -1,6 +1,7 @@
 import { EventManager, GameEvent } from "../utils/EventManager";
 
-const { property } = cc._decorator;
+const { property,ccclass } = cc._decorator;
+
 const EAction = cc.Enum({
     NONE: 0,
     OPEN: 1,
@@ -8,6 +9,7 @@ const EAction = cc.Enum({
     BOTH: 3
 })
 
+@ccclass
 export default class UIBase extends cc.Component {
 
     @property({
@@ -76,14 +78,10 @@ export default class UIBase extends cc.Component {
     open() {
         let p = new Promise<boolean>((resovle, reject) => {
             let callback = () => {
-                if (this.showAction & EAction.OPEN) {
-                    this.node.resumeSystemEvents(true);
-                }
                 EventManager.emit(this.uiName + "_open");
                 resovle(true);
             };
             if (this.showAction & EAction.OPEN) {
-                this.node.pauseSystemEvents(true);
                 this.node.scale = 0.85;
                 cc.tween(this.node)
                     .to(0.3, { scale: 1 }, { easing: "elasticOut" })
@@ -96,6 +94,7 @@ export default class UIBase extends cc.Component {
         return p;
     }
 
+    /** 关闭UI时调用此方法 */
     safeClose() {
         EventManager.emit(GameEvent.CloseUI, this.uiName);
     }
@@ -103,14 +102,10 @@ export default class UIBase extends cc.Component {
     close() {
         let p = new Promise<boolean>((resovle, reject) => {
             let callback = () => {
-                if (this.showAction & EAction.CLOSE) {
-                    this.node.resumeSystemEvents(true);
-                }
                 EventManager.emit(this.uiName + "_close");
                 resovle(true);
             };
             if (this.showAction & EAction.CLOSE) {
-                this.node.pauseSystemEvents(true);
                 cc.tween(this.node)
                     .to(0.2, { scale: 0.5 }, { easing: "backIn" })
                     .call(callback)
