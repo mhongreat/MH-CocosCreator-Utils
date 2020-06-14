@@ -2,7 +2,7 @@ import { SocketConnect } from "../../script/network/SocketConnect";
 import { EventManager } from "../../script/utils/EventManager";
 import { HttpRequest } from "../../script/network/HttpRequest";
 
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class TestNetwork extends cc.Component {
@@ -15,20 +15,20 @@ export default class TestNetwork extends cc.Component {
     @property(cc.EditBox)
     editBox: cc.EditBox = null;
 
-
-    onLoad () {
-        SocketConnect.inst.openSocket();
-        EventManager.on(1000,content=>{
+    socketConn: SocketConnect = new SocketConnect("ws://echo.websocket.org");
+    onLoad() {
+        this.socketConn.openSocket();
+        EventManager.on(1000, content => {
             this.showText2.string = content;
         });
     }
 
-    sendMessage(){
-        SocketConnect.inst.sendMessage(1000,this.editBox.string);
+    sendMessage() {
+        this.socketConn.sendMessage(1000, this.editBox.string);
     }
 
-    async httpRequest(){
-        let content = await HttpRequest.inst.get("");
+    async httpRequest() {
+        let content = await HttpRequest.inst.request("POST", "");
         this.showText1.string = content as string;
     }
 }

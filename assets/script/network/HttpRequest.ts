@@ -8,7 +8,7 @@ export class HttpRequest {
         return this._inst;
     }
 
-    public async post(action: string, data?, url?: string, showWait = true) {
+    public async request(method: "GET" | "POST", action: string, data?, url?: string, showWait = true) {
         if (!url) {
             url = "http://www.tianqiapi.com/api";
         }
@@ -30,39 +30,16 @@ export class HttpRequest {
                     resolve(response);
                 }
             }
-            xhr.open("POST", url + action, true);
-            xhr.send(data);
-        });
-        return p;
-    }
-
-    public async get(action: string, url?: string, showWait = true) {
-        if (!url) {
-            url = "http://www.tianqiapi.com/api?version=v9&appid=23035354&appsecret=8YvlPNrz";
-        }
-        let p = new Promise((resolve, reject) => {
-            let xhr = new XMLHttpRequest();
-            xhr.timeout = 5000;
-            xhr.ontimeout = () => {
-                reject("timeout");
-            };
-            xhr.onabort = () => {
-                reject("user abort");
-            };
-            xhr.onerror = () => {
-                reject("network error");
-            };
-            xhr.onreadystatechange = () => {
-                if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status < 400)) {
-                    var response = xhr.responseText;
-                    resolve(response);
-                }
+            if (method == "GET") {
+                xhr.open("GET", url + action, true);
+                xhr.send();
+            } else if (method == "POST") {
+                xhr.open("POST", url + action, true);
+                xhr.send(data);
             }
-            xhr.open("GET", url + action, true);
-            xhr.send();
+
         });
         return p;
     }
-
 
 }

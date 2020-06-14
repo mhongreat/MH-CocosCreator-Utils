@@ -10,7 +10,6 @@ export default class TestUIManager extends cc.Component {
     }
     
     openUI(){
-      
         UIManager.inst.openUI(EUIName.UI1);
     }
     showTip(){
@@ -19,7 +18,7 @@ export default class TestUIManager extends cc.Component {
     }
     showTipBox(){
       
-        UIManager.inst.tipMseeage.showTipBox("hello world");
+        UIManager.inst.tipMseeage.showTipBox("hello world 666");
     }
     
 }

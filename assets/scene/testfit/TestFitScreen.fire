@@ -983,9 +983,9 @@
     "_target": null,
     "_alignFlags": 8,
     "_left": 50,
-    "_right": 0,
+    "_right": 1130,
     "_top": 310,
-    "_bottom": 0,
+    "_bottom": 310,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
     "_isAbsLeft": true,
@@ -994,8 +994,8 @@
     "_isAbsBottom": true,
     "_isAbsHorizontalCenter": true,
     "_isAbsVerticalCenter": true,
-    "_originalWidth": 0,
-    "_originalHeight": 0,
+    "_originalWidth": 100,
+    "_originalHeight": 100,
     "_id": "ca0R8CgAxGQoOvAfuyAsjx"
   },
   {
