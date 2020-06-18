@@ -914,7 +914,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -540,
+        -590,
         0,
         0,
         0,
@@ -982,7 +982,7 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 8,
-    "_left": 50,
+    "_left": 0,
     "_right": 1130,
     "_top": 310,
     "_bottom": 310,
@@ -1011,7 +1011,7 @@
     "fitWidget": true,
     "top": 0,
     "bottom": 0,
-    "left": 0,
+    "left": 50,
     "right": 0,
     "_id": "51v1NBD15KB7VP9ldf2BmD"
   },

@@ -2,10 +2,7 @@ import { PlatformBase } from "./PlatformBase";
 import { PlatformWX } from "./PlatformWX";
 
 class PlatformDebug extends PlatformBase {
-    adUnitId = {
-        V_SIGN: "",
-        B_LOTTERY: ""
-    }
+    adUnitIdCfg
 
     login(obj) {
         return "mouhong";

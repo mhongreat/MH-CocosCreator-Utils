@@ -7,7 +7,7 @@ export class PlatformWX extends PlatformBase {
     launchInfo = null;//启动游戏信息
     shareTitle = "【斗地主合集】好友约场永久免费，叫上朋友一起来吧~";//默认分享标题
     shareImageUrl = "https://web.bzw.cn/wechatgame/doudizhu/sharepic/share2.png";//默认分享图片
-    adUnitId = { V_SIGN: "", B_LOTTERY: "" }
+    adUnitIdCfg = { V_1: "", B_1: "", I_1: "" }
 
     constructor() {
         super();
@@ -277,15 +277,15 @@ export class PlatformWX extends PlatformBase {
     bannerCache = {};//缓存banner及其显示次数
     /**
      * 添加banner
-     * @param adKey  ad类型,具体unitId值在adUnitId中获取
+     * @param adId  广告位id
      * @param posNode 跟随的节点 默认居中置底
      * @param width 宽度 默认300
      * @param sCnt 展示次数
      * @param preload 预加载banner 默认false直接展示banner
      */
-    addBanner(obj: { adKey: string, posNode?: cc.Node, width?: number, sCnt?: number, preload?: number }) {
-        let { adKey, posNode, width, sCnt, preload } = obj;
-        let adUnitId = this.adUnitId[adKey];
+    addBanner(obj: { adId: number, posNode?: cc.Node, width?: number, sCnt?: number, preload?: number }) {
+        let { adId, posNode, width, sCnt, preload } = obj;
+        let adUnitId = this.adUnitIdCfg["B_" + adId];
         width = cc.misc.clampf(width, 300, this.systemInfo.screenHeight);
         sCnt = obj.sCnt || 2;
         this.hideAllBanner();
@@ -337,8 +337,8 @@ export class PlatformWX extends PlatformBase {
     /**
      * 添加插屏广告   
      */
-    addInterstitial(obj: { adKey: string }) {
-        let adUnitId = this.adUnitId[obj.adKey];
+    addInterstitial(obj: { adId: number }) {
+        let adUnitId = this.adUnitIdCfg["I_" + obj.adId];
         if (this.compareVersion("2.6.0")) {
             if (!this.interstitial) {
                 this.interstitial = wx.createInterstitialAd({ adUnitId: adUnitId });
@@ -358,12 +358,12 @@ export class PlatformWX extends PlatformBase {
 
     /**
      * 观看视频广告
-     * @param obj.adKey 广告id @param obj.success 观看完成
+     * @param obj.adId 广告id @param obj.success 观看完成
      * @param obj.fail 未完整观看视频 @param obj.error 拉取视频出错
      */
-    watchVideo(obj: { adKey: string, success?: Function, fail?: Function, error?: Function }) {
+    watchVideo(obj: { adId: number, success?: Function, fail?: Function, error?: Function }) {
         let video = wx.createRewardedVideoAd({
-            adUnitId: this.adUnitId[obj.adKey]
+            adUnitId: this.adUnitIdCfg["V_" + obj.adId]
         });
         if (video) {
             video.offClose();

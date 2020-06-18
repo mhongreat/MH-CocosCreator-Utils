@@ -8,7 +8,7 @@ let EFitType = cc.Enum({
     FitHeight: 2
 })
 
-/** Canvas、背景、widget(针对非全面屏)适配工具 */
+/** Canvas、背景、widget(针对全面屏)适配工具 */
 @ccclass
 export default class Adaptive extends cc.Component {
 
@@ -25,27 +25,27 @@ export default class Adaptive extends cc.Component {
     fitType = EFitType.Auto;
 
     @property({
-        tooltip: "是否需要让widget适配非全面屏，widget默认值为全面屏适配方案",
+        tooltip: "是否需要让widget适配全面屏，widget默认值为非全面屏(16:9)适配方案",
         visible: function () { return this.node.name != "Canvas" && this.getComponent(cc.Widget) }
     })
     fitWidget = false;
     @property({
-        tooltip: "非全面屏时屏幕顶部的距离",
+        tooltip: "全面屏时屏幕顶部的距离",
         visible: function () { return this.fitWidget && this.getComponent(cc.Widget).isAlignTop }
     })
     top = 0;
     @property({
-        tooltip: "非全面屏时屏幕底部的距离",
+        tooltip: "全面屏时屏幕底部的距离",
         visible: function () { return this.fitWidget && this.getComponent(cc.Widget).isAlignBottom }
     })
     bottom = 0;
     @property({
-        tooltip: "非全面屏时屏幕左部的距离",
+        tooltip: "全面屏时屏幕左部的距离",
         visible: function () { return this.fitWidget && this.getComponent(cc.Widget).isAlignLeft }
     })
     left = 0;
     @property({
-        tooltip: "非全面屏时屏幕右部的距离",
+        tooltip: "全面屏时屏幕右部的距离",
         visible: function () { return this.fitWidget && this.getComponent(cc.Widget).isAlignRight }
     })
     right = 0;
@@ -81,10 +81,10 @@ export default class Adaptive extends cc.Component {
             }
         }
 
-        //widget针对非全面屏适配
+        //widget针对全面屏适配
         if (this.fitWidget) {
             let widget = this.node.getComponent(cc.Widget);
-            if (platform.screentype == 1) {
+            if (platform.screentype == 2) {
                 if (widget.isAlignTop) {
                     widget.top = this.top;
                 }
