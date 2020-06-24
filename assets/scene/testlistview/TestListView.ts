@@ -1,5 +1,6 @@
-const {ccclass, property} = cc._decorator;
+import ListView from "../../script/ui/ListView";
 
+const { ccclass, property } = cc._decorator;
 @ccclass
 export default class TestListView extends cc.Component {
 
@@ -7,11 +8,16 @@ export default class TestListView extends cc.Component {
     scrollView: cc.ScrollView = null;
 
 
-    start () {
-        console.log("ScrollView Node Height",this.scrollView.node.height);
-        console.log("ScrollView Node Rect",this.scrollView.node.getBoundingBoxToWorld());
-        
+    start() {
+        this.scrollView.content.removeAllChildren();
+        let listView = this.scrollView.getComponent(ListView);
+        listView.renderItem = this.renderItem.bind(this);
+        listView.itemNum = 1000;
     }
 
+    renderItem(index:number, obj:cc.Node) {
+        obj.getComponentInChildren(cc.Label).string = index+"";
+        
+    }
 
 }
