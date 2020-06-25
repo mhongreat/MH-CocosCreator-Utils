@@ -1,5 +1,11 @@
 const { ccclass, property, } = cc._decorator;
 
+const ListMode = cc.Enum({
+    Normal: 0,
+    Virtual: 1,
+    Frame: 2
+})
+
 enum ScrollMode {
     Horizontal,
     Vertical
@@ -11,12 +17,24 @@ enum ScrollType {
     Left,
     Right
 }
-
+/** 
+ * listview支持三种加载模式
+ * Virtual模式目前仅支持水平(left-right)和垂直(top-bottom)布局,且需要为content设置好锚点并添加layout组件  
+ */
 @ccclass
 export default class ListView extends cc.Component {
-
+    @property({
+        type: ListMode,
+        tooltip: "Normal：普通list，Virtual：虚拟list，Frame：分帧加载list"
+    })
+    mode = ListMode.Normal;
     @property(cc.Prefab)
     listItem: cc.Prefab = null;
+    @property({
+        visible: function () { return this.mode == ListMode.Frame },
+        tooltip: "每帧消耗多少时间用于加载list，单位ms，建议3～8ms"
+    })
+    frameCost = 3;
 
     private _itemNum: number = 0;
     public get itemNum() {
@@ -28,52 +46,63 @@ export default class ListView extends cc.Component {
             return;
         }
         this._itemNum = value;
-        this.setContentSize();
+        switch (this.mode) {
+            case ListMode.Normal:
+                this.normalLoadList(); break;
+            case ListMode.Virtual:
+                this.initListView(); break;
+            case ListMode.Frame:
+                this.frameLoadList(); break;
+        }
     }
     public renderItem: (index: number, obj: cc.Node) => void = null;
 
-    scrollMode: ScrollMode = 0;
     scrollView: cc.ScrollView = null;
-    viewNode: cc.Node = null;
-
     content: cc.Node = null;
+
+    //虚拟list相关属性
+    scrollMode: ScrollMode = 0;
+    viewNode: cc.Node = null;
     layout: cc.Layout = null;
     itemIndexKey = "_mIndex";
-    lastPosX: number = 0;
-    lastPosY: number = 0;
+    lastOffset = cc.v2(0, 0);
+    itemDict: { [index: number]: cc.Node } = {};
+    firstItem: cc.Node = null;
+    lastItem: cc.Node = null;
 
     onLoad() {
         this.scrollView = this.getComponent(cc.ScrollView);
-        this.scrollMode = this.scrollView.horizontal ? ScrollMode.Horizontal : ScrollMode.Vertical;
         this.content = this.scrollView.content;
-        this.layout = this.content.getComponent(cc.Layout)
-        this.layout.enabled = false;
-        this.lastPosX = this.content.x;
-        this.lastPosY = this.content.y;
-        this.node.on("scrolling", this.scrolling, this);
-        this.checkAnchor();
+        if (this.mode == ListMode.Virtual) {
+            this.scrollMode = this.scrollView.horizontal ? ScrollMode.Horizontal : ScrollMode.Vertical;
+            this.layout = this.content.getComponent(cc.Layout)
+            this.layout.enabled = false;
+            this.node.on("scrolling", this.scrolling, this);
+            this.node.on("scroll-ended", this.scrolling, this);
+            this.checkAnchor();
+        }
     }
 
+    /** 监听滚动事件 */
     scrolling() {
-        if (!this.checkScrollValid()) return;
+        let offset = this.scrollView.getScrollOffset();
+        if (!this.checkScrollValid(offset)) return;
         if (this.scrollMode == ScrollMode.Horizontal) {
-            let deltaX = this.scrollView.content.x - this.lastPosX;
-            this.lastPosX = this.scrollView.content.x;
+            let deltaX = offset.x - this.lastOffset.x;
             if (deltaX < 0) {//LEFT
                 this.setListView(ScrollType.Left);
-            } else {//RIGHT
+            } else if (deltaX > 0) {//RIGHT
                 this.setListView(ScrollType.Right);
             }
         } else if (this.scrollMode == ScrollMode.Vertical) {
-            let deltaY = this.scrollView.content.y - this.lastPosY;
-            this.lastPosY = this.scrollView.content.y;
+            let deltaY = offset.y - this.lastOffset.y;
             if (deltaY > 0) {//UP
                 this.setListView(ScrollType.Up);
-            } else {//DOWN
+            } else if (deltaY > 0) {//DOWN
                 this.setListView(ScrollType.Down);
             }
         }
-
+        this.lastOffset = offset;
     }
 
     /** 计算item所需数量 添加到content */
@@ -97,6 +126,8 @@ export default class ListView extends cc.Component {
 
     /** 初始化ListView */
     initListView() {
+        this.setContentSize();
+        this.initContent();
         if (this.scrollMode == ScrollMode.Horizontal) {
             this.scrollView.scrollToLeft();
         } else if (this.scrollMode == ScrollMode.Vertical) {
@@ -107,6 +138,12 @@ export default class ListView extends cc.Component {
                 v.active = false;
             } else {
                 v.active = true;
+                if (i == 0) {
+                    this.firstItem = v;
+                }
+                if (i == this.content.childrenCount - 1) {
+                    this.lastItem = v;
+                }
             }
             this.setItemPosByIndex(i, v);
         });
@@ -114,10 +151,8 @@ export default class ListView extends cc.Component {
 
     /** 手动设置content大小 */
     setContentSize() {
-        this.initContent();
-        this.initListView();
         if (this.layout.type != cc.Layout.Type.HORIZONTAL && this.layout.type != cc.Layout.Type.VERTICAL) {
-            console.warn("暂时只支持content布局类型为水平或者垂直");
+            console.error("暂时只支持content布局类型为水平或者垂直");
             return;
         }
         if (this.scrollMode == ScrollMode.Horizontal) {
@@ -133,31 +168,33 @@ export default class ListView extends cc.Component {
         }
     }
 
-    /** 滚动是动态调整item位置 */
+    /** 滚动时动态调整item位置 */
     setListView(type: ScrollType) {
         let offsetX = Math.abs(this.scrollView.getScrollOffset().x);
         let offsetY = Math.abs(this.scrollView.getScrollOffset().y);
         if (type == ScrollType.Up || type == ScrollType.Left) {
-            let item = this.getItem(0);
             if (
-                (this.scrollMode == ScrollMode.Horizontal && offsetX > Math.abs(item.x + item.width / 2)) ||
-                (this.scrollMode == ScrollMode.Vertical && offsetY > Math.abs(item.y - item.height / 2))
+                (this.scrollMode == ScrollMode.Horizontal && offsetX > Math.abs(this.firstItem.x + this.firstItem.width / 2)) ||
+                (this.scrollMode == ScrollMode.Vertical && offsetY > Math.abs(this.firstItem.y - this.firstItem.height / 2))
             ) {
-                let lastItemIndex = this.getItem(1)[this.itemIndexKey];
+                let lastItemIndex = this.lastItem[this.itemIndexKey];
                 if (lastItemIndex >= this.itemNum - 1) return;
                 let newIndex = lastItemIndex + 1;
-                this.setItemPosByIndex(newIndex, item);
+                this.setItemPosByIndex(newIndex, this.firstItem);
+                this.lastItem = this.firstItem;
+                this.firstItem = this.itemDict[newIndex - this.content.childrenCount + 1];
             }
         } else {
-            let item = this.getItem(1);
             if (
-                (this.scrollMode == ScrollMode.Horizontal && offsetX < Math.abs(item.x - this.viewNode.width - item.width / 2)) ||
-                (this.scrollMode == ScrollMode.Vertical && offsetY < Math.abs(item.y + this.viewNode.height + item.height / 2))
+                (this.scrollMode == ScrollMode.Horizontal && offsetX < Math.abs(this.lastItem.x - this.viewNode.width - this.lastItem.width / 2)) ||
+                (this.scrollMode == ScrollMode.Vertical && offsetY < Math.abs(this.lastItem.y + this.viewNode.height + this.lastItem.height / 2))
             ) {
-                let firstItemIndex = this.getItem(0)[this.itemIndexKey];
+                let firstItemIndex = this.firstItem[this.itemIndexKey];
                 if (firstItemIndex <= 0) return;
                 let newIndex = firstItemIndex - 1;
-                this.setItemPosByIndex(newIndex, item);
+                this.setItemPosByIndex(newIndex, this.lastItem);
+                this.firstItem = this.lastItem;
+                this.lastItem = this.itemDict[newIndex + this.content.childrenCount - 1];
             }
         }
     }
@@ -172,6 +209,7 @@ export default class ListView extends cc.Component {
             item.position = cc.v2(0, y);
         }
         item[this.itemIndexKey] = index;
+        this.itemDict[index] = item;
         this.renderItem && this.renderItem(index, item);
     }
 
@@ -181,46 +219,84 @@ export default class ListView extends cc.Component {
         if (
             !((this.scrollMode == ScrollMode.Horizontal && this.content.anchorX == 0 && this.content.anchorY == 0.5) ||
                 (this.scrollMode == ScrollMode.Vertical && this.content.anchorX == 0.5 && this.content.anchorY == 1))
-
         ) {
             console.error("水平滚动请将content锚点设置为(0,0.5)，垂直滚动请将Content锚点设置为(0.5,1)");
         }
         if (this.listItem.data.anchorX != 0.5 || this.listItem.data.anchorY != 0.5) {
             console.error("请将listItem锚点设置为(0.5,0.5)");
         }
+        if (this.scrollView.horizontal == this.scrollView.vertical) {
+            console.error("Virtual模式仅支持单方向滚动");
+        }
     }
 
     /** 检测滚动是否有效 */
-    checkScrollValid() {
+    checkScrollValid(offset: cc.Vec2) {
         if (this.scrollMode == ScrollMode.Horizontal) {
-            let offsetX = this.scrollView.getScrollOffset().x;
-            if (offsetX >= 0 || offsetX <= this.viewNode.width - this.content.width)
+            if (offset.x >= 0 || offset.x <= this.viewNode.width - this.content.width)
                 return false;
         } else if (this.scrollMode == ScrollMode.Vertical) {
-            let offsetY = this.scrollView.getScrollOffset().y;
-            if (offsetY <= 0 || offsetY >= this.content.height - this.viewNode.height)
+            if (offset.y <= 0 || offset.y >= this.content.height - this.viewNode.height)
                 return false;
         }
         return true;
     }
 
-    /** 从content获取item 0索引最小 1索引最大 */
-    getItem(type: 0 | 1): cc.Node {
-        let min = null, max = null;
-        this.content.children.forEach((v, i) => {
-            if (i == 0) {
-                max = v;
-                min = v;
+    /** 普通方式加载list */
+    normalLoadList() {
+        if (this.content.childrenCount > this.itemNum) {
+            for (let i = this.itemNum; i < this.content.childrenCount; i++) {
+                this.content.children[i].active = false;
             }
-            let index = v[this.itemIndexKey];
-            if (index > max[this.itemIndexKey]) {
-                max = v;
+        }
+        for (let i = 0; i < this.itemNum; i++) {
+            let node = cc.instantiate(this.listItem);
+            this.content.addChild(node);
+            this.renderItem(i, node);
+        }
+    }
+
+    /** 分帧加载list */
+    frameLoadList() {
+        if (this.content.childrenCount > this.itemNum) {
+            for (let i = this.itemNum; i < this.content.childrenCount; i++) {
+                this.content.children[i].active = false;
             }
-            if (index < min[this.itemIndexKey]) {
-                min = v;
+        }
+        let gen = this.itemGen();
+        let p = new Promise((resolve, reject) => {
+            let execute = () => {
+                let d1 = Date.now();
+                for (let e = gen.next(); ; e = gen.next()) {
+                    if (!e || e.done) {
+                        resolve();
+                        break;
+                    }
+                    if (typeof e.value == "function") {
+                        e.value();
+                    }
+                    let d2 = Date.now();
+                    if (d2 - d1 >= this.frameCost) {
+                        new cc.Component().scheduleOnce(execute);
+                        break;
+                    }
+                }
             }
+            execute();
         });
-        return type == 0 ? min : max;
+        return p;
+    }
+
+    /** item生成器 */
+    *itemGen() {
+        for (let i = 0; i < this.itemNum; i++) {
+            let func = () => {
+                let node = this.content.children[i] || cc.instantiate(this.listItem);
+                this.content.addChild(node);
+                this.renderItem(i, node);
+            }
+            yield func;
+        }
     }
 
 }

@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Sprite(Splash)",
+    "_name": "HItem",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -40,8 +40,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 360,
-      "height": 100
+      "width": 100,
+      "height": 360
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
