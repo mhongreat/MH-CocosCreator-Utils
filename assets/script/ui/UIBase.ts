@@ -1,6 +1,6 @@
 import { EventManager, GameEvent } from "../utils/EventManager";
 
-const { property,ccclass } = cc._decorator;
+const { property, ccclass } = cc._decorator;
 
 const EAction = cc.Enum({
     NONE: 0,
@@ -75,13 +75,14 @@ export default class UIBase extends cc.Component {
         this.node.opacity = cc.misc.clampf(opacity, 0, 255);
     }
 
-    open() {
+    open(action?: boolean) {
+        if (action == undefined) action = Boolean(this.showAction & EAction.OPEN);
         let p = new Promise<boolean>((resovle, reject) => {
             let callback = () => {
                 EventManager.emit(this.uiName + "_open");
                 resovle(true);
             };
-            if (this.showAction & EAction.OPEN) {
+            if (action) {
                 this.node.scale = 0.85;
                 cc.tween(this.node)
                     .to(0.3, { scale: 1 }, { easing: "elasticOut" })
@@ -99,13 +100,14 @@ export default class UIBase extends cc.Component {
         EventManager.emit(GameEvent.CloseUI, this.uiName);
     }
 
-    close() {
+    close(action?: boolean) {
+        if (action == undefined) action = Boolean(this.showAction & EAction.CLOSE);
         let p = new Promise<boolean>((resovle, reject) => {
             let callback = () => {
                 EventManager.emit(this.uiName + "_close");
                 resovle(true);
             };
-            if (this.showAction & EAction.CLOSE) {
+            if (action) {
                 cc.tween(this.node)
                     .to(0.2, { scale: 0.5 }, { easing: "backIn" })
                     .call(callback)

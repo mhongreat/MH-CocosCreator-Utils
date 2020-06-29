@@ -13,9 +13,9 @@ export class UIManager {
         return this._inst;
     }
 
-    private uiDict: { [name: string]: UIBase } = null;
-    private uiStack: UIBase[] = null;
-    private cooldown = false;//ui打开和关闭时进入冷却
+    private uiDict: { [name: string]: UIBase } = {};
+    private uiStack: UIBase[] = [];
+    private cooldown = false;//ui打开时进入冷却
     /** 半透明遮罩 */
     private shade: cc.Node = null;
     /** 普通的ui页面 */
@@ -28,10 +28,8 @@ export class UIManager {
     /** 场景加载后手动调用初始化 */
     public async init() {
         this.clear();
-
         EventManager.on(GameEvent.OpenUI, this.openUI, this);
         EventManager.on(GameEvent.CloseUI, this.closeUI, this);
-
         let canvas = cc.find("Canvas");
         this.normalLayer = new cc.Node("normalLayer");
         this.normalLayer.setContentSize(cc.winSize);
@@ -49,7 +47,7 @@ export class UIManager {
     }
 
 
-    public async openUI(name: EUIName, args?: any) {
+    public async openUI(name: EUIName, args?: any, action?: boolean) {
         if (this.cooldown) return;
         this.cooldown = true;
         let ui = await this.initUI(name);
@@ -59,29 +57,26 @@ export class UIManager {
         this.normalLayer.addChild(ui.node);
         this.uiStack.push(ui);
         this.setShade();
-        await ui.open();
-        this.setUIVisible(ui.cover, false);
+        await ui.open(action);
+        this.setUIVisible();
         this.cooldown = false;
         return ui;
     }
 
-    public async closeUI(name: EUIName) {
-        if (this.cooldown) return;
-        if (this.isTopUI(name)) {
-            this.cooldown = true;
-            let ui = this.uiStack.pop();
+    public async closeUI(name: EUIName, action?: boolean) {
+        let ui = this.uiDict[name];
+        let index = this.uiStack.indexOf(ui)
+        if (index != -1) {
+            this.uiStack.splice(index, 1);
             this.setShade();
-            this.setUIVisible(ui.cover, true);
-            await ui.close();
+            this.setUIVisible();
+            await ui.close(action);
+            ui.node.parent = null;
             if (ui.destroyNode) {
-                ui.destroy();
+                ui.node.destroy();
+                cc.resources.release(name);
                 this.uiDict[name] = undefined;
-            } else {
-                ui.node.parent = null;
             }
-            this.cooldown = false;
-        } else {
-            console.warn("请根据UI栈的规则,先进后出");
         }
         return true;
     }
@@ -93,6 +88,8 @@ export class UIManager {
         }
         let node = await this.instUINode(name);
         ui = node.getComponent(UIBase);
+        ui.setActive(true);
+        ui.setOpacity(255);
         ui.init();
         this.uiDict[name] = ui;
         return ui;
@@ -146,28 +143,25 @@ export class UIManager {
         }
     }
 
-    private setUIVisible(cover: boolean, show: boolean) {
-        if (!cover) return;
-        let stackLen = this.uiStack.length;
-        if (show) {//关闭UI时显示下层UI
-            let ui = this.getTopUI();
-            ui && ui.setOpacity(255);
-        } else {//打开UI时隐藏下层UI
-            if (stackLen >= 2) {
-                let ui = this.uiStack[stackLen - 2];
-                ui.setOpacity(0);
+    private setUIVisible() {
+        let topUI = this.getTopUI();
+        topUI && topUI.setOpacity(255);
+        for (let i = this.uiStack.length - 1; i > 0; i--) {
+            let ui = this.uiStack[i];
+            if (ui.cover) {
+                this.uiStack[i - 1].setOpacity(0);
+            } else {
+                this.uiStack[i - 1].setOpacity(255);
             }
         }
     }
 
     /** 切换场景后清除资源 */
     private clear() {
-        if (this.uiDict) {
-            for (let name in this.uiDict) {
-                let ui = this.uiDict[name];
-                if (ui && ui.isValid && ui.node.isValid) {
-                    ui.node.destroy();
-                }
+        for (let name in this.uiDict) {
+            let ui = this.uiDict[name];
+            if (ui && ui.isValid) {
+                ui.node.destroy();
             }
         }
         if (this.shade && this.shade.isValid) {

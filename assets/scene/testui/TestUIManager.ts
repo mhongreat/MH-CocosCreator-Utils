@@ -21,4 +21,7 @@ export default class TestUIManager extends cc.Component {
         UIManager.inst.tipMseeage.showTipBox("hello world 666");
     }
     
+    closeBottom(){
+        UIManager.inst.closeUI(EUIName.UI1);
+    }
 }
