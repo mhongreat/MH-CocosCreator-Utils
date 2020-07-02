@@ -31,7 +31,7 @@ export class StroageUtil {
      */
     getString(key: EStroageKey, defaultValue: string): string {
         let value = cc.sys.localStorage.getItem(key) + "";
-        if (value != null && value != undefined) {
+        if (value) {
             return value;
         }
         return defaultValue;

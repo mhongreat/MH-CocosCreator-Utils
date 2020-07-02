@@ -61,38 +61,6 @@ export class Utils {
     }
 
     /**
-     * 分帧加载 
-     * @param gen 生成器对象
-     * @param dt 每帧用于加载的耗时,单位：ms
-     */
-    static frameLoad(gen: Generator, dt = 3) {
-        let canvas = cc.find("Canvas").getComponent(cc.Canvas);
-        let p = new Promise((resolve, reject) => {
-            let execute = () => {
-                let d1 = Date.now();
-                for (let e = gen.next(); ; e = gen.next()) {
-                    if (!e || e.done) {
-                        resolve();
-                        break;
-                    }
-                    if (typeof e.value == "function") {
-                        e.value();
-                    } else {
-                        console.warn("表达式异常");
-                    }
-                    let d2 = Date.now();
-                    if (d2 - d1 >= dt) {
-                        canvas.scheduleOnce(execute);
-                        break;
-                    }
-                }
-            }
-            execute();
-        });
-        return p;
-    }
-
-    /**
      * 返回今天的日期,格式20000101
      */
     static nowDate(): number {

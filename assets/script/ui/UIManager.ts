@@ -74,7 +74,6 @@ export class UIManager {
             ui.node.parent = null;
             if (ui.destroyNode) {
                 ui.node.destroy();
-                cc.resources.release(name);
                 this.uiDict[name] = undefined;
             }
         }
@@ -83,13 +82,17 @@ export class UIManager {
 
     public async initUI(name: EUIName) {
         let ui = this.uiDict[name];
-        if (ui && ui.isValid) {
+        if (ui?.isValid) {
+            let index = this.uiStack.indexOf(ui);
+            if (index > -1) {
+                this.uiStack.splice(index, 1);
+            }
+            ui.setActive(true);
+            ui.setOpacity(255);
             return ui;
         }
         let node = await this.instUINode(name);
         ui = node.getComponent(UIBase);
-        ui.setActive(true);
-        ui.setOpacity(255);
         ui.init();
         this.uiDict[name] = ui;
         return ui;
@@ -137,7 +140,7 @@ export class UIManager {
     private setShade() {
         this.shade.parent = null;
         let ui = this.getTopUI();
-        if (ui && ui.showShade) {
+        if (ui?.showShade) {
             this.shade.zIndex = ui.node.zIndex - 1;
             this.shade.parent = this.normalLayer;
         }
@@ -145,7 +148,7 @@ export class UIManager {
 
     private setUIVisible() {
         let topUI = this.getTopUI();
-        topUI && topUI.setOpacity(255);
+        topUI?.setOpacity(255);
         for (let i = this.uiStack.length - 1; i > 0; i--) {
             let ui = this.uiStack[i];
             if (ui.cover) {
@@ -160,11 +163,11 @@ export class UIManager {
     private clear() {
         for (let name in this.uiDict) {
             let ui = this.uiDict[name];
-            if (ui && ui.isValid) {
+            if (ui?.isValid) {
                 ui.node.destroy();
             }
         }
-        if (this.shade && this.shade.isValid) {
+        if (this.shade?.isValid) {
             this.shade.destroy();
         }
         this.uiDict = {};
