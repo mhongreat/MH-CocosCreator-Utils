@@ -1,6 +1,7 @@
 import UIBase from "./UIBase";
 import { EventManager, GameEvent } from "../utils/EventManager";
 import UITipMessage from "./UITipMessage";
+import UIGUide from "./UIGuide";
 
 export class UIManager {
 
@@ -23,6 +24,7 @@ export class UIManager {
     /** 比较上层的ui界面(如提示信息、引导、loading遮罩等)不参与ui堆栈 */
     private higherLayer: cc.Node = null;
 
+    public guide: UIGUide = null;
     public tipMseeage: UITipMessage = null;
 
     /** 场景加载后手动调用初始化 */
@@ -41,8 +43,11 @@ export class UIManager {
         this.shade = await this.instUINode("ui/shade");
 
         //添加上层ui
-        let tipMseeageNode = await this.instUINode("ui/UITipMessage");
-        this.higherLayer.addChild(tipMseeageNode)
+        let guideNode = await this.instUINode(EUIName.UIGuide);
+        this.higherLayer.addChild(guideNode);
+        this.guide = guideNode.getComponent(UIGUide);
+        let tipMseeageNode = await this.instUINode(EUIName.UITipMessage);
+        this.higherLayer.addChild(tipMseeageNode);
         this.tipMseeage = tipMseeageNode.getComponent(UITipMessage);
     }
 
@@ -113,6 +118,15 @@ export class UIManager {
         return p;
     }
 
+    public getStackUI(name: EUIName) {
+        let ui = this.uiDict[name];
+        if (ui?.isValid && this.uiStack.includes(ui)) {
+            return ui;
+        } else {
+            return null;
+        }
+    }
+
     public isTopUI(name: EUIName) {
         let ui = this.uiDict[name];
         if (ui) {
@@ -178,6 +192,10 @@ export class UIManager {
 }
 
 export enum EUIName {//字符串值为ui加载路径
+    UIGuide = "ui/guide",
+    UITipMessage = "ui/UITipMessage",
     UI1 = "ui/ui1",
     UI2 = "ui/ui2",
+    UI3 = "ui/ui3",
+    UI4 = "ui/ui4",
 }

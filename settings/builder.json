@@ -7,7 +7,7 @@
     "upsideDown": false
   },
   "packageName": "org.cocos2d.demo",
-  "startScene": "6c4cf0b0-561a-471d-9d9e-d905a3c8809b",
+  "startScene": "70865fa4-0fcd-4bd2-badc-cd6bb68ec2d1",
   "title": "MH-CocosCreator-Utils",
   "webOrientation": "auto",
   "includeSDKBox": false,
@@ -15,18 +15,18 @@
   "inlineSpriteFrames_native": true,
   "mergeStartScene": false,
   "optimizeHotUpdate": false,
-  "md5Cache": false,
+  "md5Cache": true,
   "encryptJs": true,
   "xxteaKey": "8b376678-7f41-4d",
   "zipCompressJs": true,
   "fb-instant-games": {},
   "android": {
     "REMOTE_SERVER_ROOT": "",
-    "packageName": "org.cocos2d.demo"
+    "packageName": "cn.cnmou.smile"
   },
   "ios": {
     "REMOTE_SERVER_ROOT": "",
-    "packageName": "org.cocos2d.demo"
+    "packageName": "cn.cnmou.smile"
   },
   "mac": {
     "REMOTE_SERVER_ROOT": "",
@@ -51,5 +51,6 @@
   "appBundle": false,
   "startSceneAssetBundle": false,
   "mainCompressionType": "default",
-  "mainIsRemote": false
+  "mainIsRemote": false,
+  "nativeMd5Cache": false
 }

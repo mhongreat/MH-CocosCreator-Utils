@@ -48,7 +48,7 @@ export default class UIBase extends cc.Component {
     protected args: any = null;
     protected uiName: string = null;
 
-    /** 初始化UI，在子类重写该方法时，必须手动调用super.init() */
+    /** 初始化UI，在子类重写该方法时，必须调用super.init() */
     init() {
         this.node.setContentSize(cc.winSize);
         this.closeBtn && this.closeBtn.node.on("click", this.safeClose, this);
@@ -79,7 +79,7 @@ export default class UIBase extends cc.Component {
         if (action == undefined) action = Boolean(this.showAction & EAction.OPEN);
         let p = new Promise<boolean>((resovle, reject) => {
             let callback = () => {
-                EventManager.emit(this.uiName + "_open");
+                EventManager.emit(this.uiName + "_open", this);
                 resovle(true);
             };
             if (action) {
@@ -104,7 +104,7 @@ export default class UIBase extends cc.Component {
         if (action == undefined) action = Boolean(this.showAction & EAction.CLOSE);
         let p = new Promise<boolean>((resovle, reject) => {
             let callback = () => {
-                EventManager.emit(this.uiName + "_close");
+                EventManager.emit(this.uiName + "_close", this);
                 resovle(true);
             };
             if (action) {

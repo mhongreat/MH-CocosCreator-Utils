@@ -5,7 +5,20 @@
     ]
   ],
   "excluded-modules": [
+    "Geom Utils",
+    "Mesh",
+    "MotionStreak",
+    "Physics",
+    "Spine Skeleton",
+    "StudioComponent",
+    "TiledMap",
+    "VideoPlayer",
+    "WebView",
+    "3D",
+    "3D Primitive",
+    "3D Physics/cannon.js",
     "3D Physics/Builtin",
+    "3D Particle",
     "SafeArea"
   ],
   "group-list": [
@@ -22,7 +35,7 @@
     "height": 640,
     "width": 960
   },
-  "last-module-event-record-time": 1591358235922,
+  "last-module-event-record-time": 1593779623206,
   "assets-sort-type": "name",
   "facebook": {
     "appID": "",
