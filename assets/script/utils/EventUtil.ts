@@ -41,7 +41,7 @@ export class EventUtil {
         }
     }
 
-    /** 触发事件的回调，参数个数不固定 */
+    /** 触发事件，参数个数不固定 */
     public static emit(name: number | string, ...args) {
         let events = this.eventMap.get(name);
         if (events && events.length > 0) {

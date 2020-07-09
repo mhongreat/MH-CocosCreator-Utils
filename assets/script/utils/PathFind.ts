@@ -46,7 +46,7 @@ export class PathFind {
                 this._gridList.push(new MapGrid(index, cc.v2(x, y)));
             }
         }
-        // this.debugMap();
+        this.debugMap();
     }
 
     public getPath(start: cc.Vec2 | cc.Vec3, end: cc.Vec2 | cc.Vec3) {

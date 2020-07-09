@@ -13,6 +13,7 @@ export default class UIGUide extends UIBase {
     @property(cc.Node)
     mask: cc.Node = null;
 
+    guideId: number = 0;
     pathArr: String[] = null;
     cbFinish: Function = null;
 
@@ -22,17 +23,17 @@ export default class UIGUide extends UIBase {
     }
 
     public startGuide(guideId: number, cbFinish?: Function) {
-        this.cbFinish = cbFinish;
+        if (this.guideId != 0) return;
         this.mask.position = cc.v2(0, 0);
         this.mask.width = 0;
         this.mask.height = 0;
         let data: string = this.guideData.json[guideId];
         if (data) {
             this.pathArr = data.split(";");
-            if (this.pathArr.length > 0) {
-                this.mask.active = true;
-                this.bindClickEventByIndex(0);
-            }
+            this.mask.active = true;
+            this.guideId = guideId;
+            this.cbFinish = cbFinish;
+            this.bindClickEventByIndex(0);
         }
     }
 
@@ -62,7 +63,9 @@ export default class UIGUide extends UIBase {
         if (index < this.pathArr.length) {
             if (index == this.pathArr.length - 1) {
                 this.mask.active = false;
+                this.guideId = 0;
                 this.cbFinish && this.cbFinish();
+                this.cbFinish = null;
                 console.log("guide over");
             } else {
                 let newIndex = index + 1;
@@ -79,6 +82,5 @@ export default class UIGUide extends UIBase {
                 x: pos2.x, y: pos2.y,
                 width: btnNode.width, height: btnNode.height
             }).start();
-
     }
 }
