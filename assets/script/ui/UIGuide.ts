@@ -1,6 +1,6 @@
 import UIBase from "./UIBase";
 import { UIManager, EUIName } from "./UIManager";
-import { EventManager } from "../utils/EventManager";
+import { EventUtil } from "../utils/EventUtil";
 
 const { ccclass, property } = cc._decorator;
 
@@ -51,7 +51,7 @@ export default class UIGUide extends UIBase {
             if (ui) {
                 func(ui);
             } else {
-                EventManager.on(uiName + "_open", (uiData: UIBase) => {
+                EventUtil.once(uiName + "_open", (uiData: UIBase) => {
                     func(uiData);
                 })
             }

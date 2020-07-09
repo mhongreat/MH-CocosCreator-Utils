@@ -1,5 +1,5 @@
 import UIBase from "./UIBase";
-import { EventManager, GameEvent } from "../utils/EventManager";
+import { EventUtil, GameEvent } from "../utils/EventUtil";
 import UITipMessage from "./UITipMessage";
 import UIGUide from "./UIGuide";
 
@@ -30,8 +30,8 @@ export class UIManager {
     /** 场景加载后手动调用初始化 */
     public async init() {
         this.clear();
-        EventManager.on(GameEvent.OpenUI, this.openUI, this);
-        EventManager.on(GameEvent.CloseUI, this.closeUI, this);
+        EventUtil.on(GameEvent.OpenUI, this.openUI, this);
+        EventUtil.on(GameEvent.CloseUI, this.closeUI, this);
         let canvas = cc.find("Canvas");
         this.normalLayer = new cc.Node("normalLayer");
         this.normalLayer.setContentSize(cc.winSize);
