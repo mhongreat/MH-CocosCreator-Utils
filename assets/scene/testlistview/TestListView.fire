@@ -547,11 +547,12 @@
       "__id__": 7
     },
     "_enabled": true,
-    "mode": 1,
+    "mode": 2,
     "listItem": {
       "__uuid__": "41a5006e-540c-466e-be40-55248659181a"
     },
     "frameCost": 0,
+    "frequency": 2,
     "_id": "91KCiBmbdAtJFELOiRJkpD"
   },
   {
@@ -774,11 +775,12 @@
       "__id__": 13
     },
     "_enabled": true,
-    "mode": 1,
+    "mode": 2,
     "listItem": {
       "__uuid__": "ccb951a5-532f-4b55-92a1-45ab94fb4749"
     },
     "frameCost": 0,
+    "frequency": 2,
     "_id": "23GXckiX9IA52shUqJJR1u"
   },
   {
@@ -1001,11 +1003,12 @@
       "__id__": 19
     },
     "_enabled": true,
-    "mode": 2,
+    "mode": 1,
     "listItem": {
       "__uuid__": "77c34782-2cdc-4926-9a1c-960004d923d3"
     },
     "frameCost": 8,
+    "frequency": 1,
     "_id": "73xNxrok1Bl5jkQsoTSXsy"
   },
   {
@@ -1798,7 +1801,7 @@
     "component": "",
     "_componentId": "a10a5fw5FdI7awSVsgdgIdB",
     "handler": "loadList",
-    "customEventData": "2"
+    "customEventData": "1"
   },
   {
     "__type__": "cc.Node",

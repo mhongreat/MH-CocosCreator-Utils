@@ -2,8 +2,8 @@ const { ccclass, property, } = cc._decorator;
 
 const ListMode = cc.Enum({
     Normal: 0,
-    Virtual: 1,
-    Frame: 2
+    Frame: 1,
+    Virtual: 2
 })
 
 enum ScrollMode {
@@ -25,32 +25,36 @@ enum ScrollType {
 export default class ListView extends cc.Component {
     @property({
         type: ListMode,
-        tooltip: "Normal：普通list，Virtual：虚拟list，Frame：分帧加载list"
+        tooltip: "Normal：普通list，Frame：分帧加载list，Virtual：虚拟list"
     })
     mode = ListMode.Normal;
     @property(cc.Prefab)
     listItem: cc.Prefab = null;
     @property({
-        visible: function () { return this.mode == ListMode.Frame },
-        tooltip: "每帧消耗多少时间用于加载list，单位ms，建议3～8ms"
+        tooltip: "每帧消耗多少时间用于加载list，单位ms，建议3～8ms",
+        visible: function () { return this.mode == ListMode.Frame }
     })
     frameCost = 3;
+    @property({
+        type: cc.Integer,
+        range: [1, 5],
+        displayName: "刷新频率",
+        tooltip: "List每多少帧刷新一次",
+        visible: function () { return this.mode == ListMode.Virtual }
+    })
+    frequency = 1;
 
     private _itemNum: number = 0;
     public get itemNum() {
         return this._itemNum;
     }
     public set itemNum(value) {
-        if (!this.renderItem) {
-            console.error("必须优先为renderItem赋值");
-            return;
-        }
         this._itemNum = value;
         switch (this.mode) {
             case ListMode.Normal:
                 this.normalLoadList(); break;
             case ListMode.Virtual:
-                this.initListView(); break;
+                this.loadVirtualList(); break;
             case ListMode.Frame:
                 this.frameLoadList(); break;
         }
@@ -62,6 +66,7 @@ export default class ListView extends cc.Component {
 
     //虚拟list相关属性
     scrollMode: ScrollMode = 0;
+    refreshCount = 0;
     viewNode: cc.Node = null;
     layout: cc.Layout = null;
     itemIndexKey = "_mIndex";
@@ -78,14 +83,17 @@ export default class ListView extends cc.Component {
             this.layout = this.content.getComponent(cc.Layout)
             this.layout.enabled = false;
             this.node.on("scrolling", this.scrolling, this);
-            this.node.on("scroll-ended", this.scrolling, this);
             this.checkAnchor();
         }
     }
 
     /** 监听滚动事件 */
     scrolling() {
+        if (this.refreshCount++ % this.frequency != 0) return;
+        this.refreshCount = 0;
+        
         let offset = this.scrollView.getScrollOffset();
+        console.log("scrolling ",offset.y);
         if (!this.checkScrollValid(offset)) return;
         if (this.scrollMode == ScrollMode.Horizontal) {
             let deltaX = offset.x - this.lastOffset.x;
@@ -98,7 +106,7 @@ export default class ListView extends cc.Component {
             let deltaY = offset.y - this.lastOffset.y;
             if (deltaY > 0) {//UP
                 this.setListView(ScrollType.Up);
-            } else if (deltaY > 0) {//DOWN
+            } else if (deltaY < 0) {//DOWN
                 this.setListView(ScrollType.Down);
             }
         }
@@ -124,8 +132,8 @@ export default class ListView extends cc.Component {
         }
     }
 
-    /** 初始化ListView */
-    initListView() {
+    /** 加载虚拟列表 */
+    loadVirtualList() {
         this.setContentSize();
         this.initContent();
         if (this.scrollMode == ScrollMode.Horizontal) {
@@ -170,6 +178,8 @@ export default class ListView extends cc.Component {
 
     /** 滚动时动态调整item位置 */
     setListView(type: ScrollType) {
+        console.log(type);
+        
         let offsetX = Math.abs(this.scrollView.getScrollOffset().x);
         let offsetY = Math.abs(this.scrollView.getScrollOffset().y);
         if (type == ScrollType.Up || type == ScrollType.Left) {
@@ -252,7 +262,7 @@ export default class ListView extends cc.Component {
         for (let i = 0; i < this.itemNum; i++) {
             let node = cc.instantiate(this.listItem);
             this.content.addChild(node);
-            this.renderItem(i, node);
+            this.renderItem && this.renderItem(i, node);
         }
     }
 
@@ -293,7 +303,7 @@ export default class ListView extends cc.Component {
             let func = () => {
                 let node = this.content.children[i] || cc.instantiate(this.listItem);
                 this.content.addChild(node);
-                this.renderItem(i, node);
+                this.renderItem && this.renderItem(i, node);
             }
             yield func;
         }
