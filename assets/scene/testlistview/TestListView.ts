@@ -22,7 +22,6 @@ export default class TestListView extends cc.Component {
         let listView2 = this.vSrollView.getComponent(ListView);
         listView2.renderItem = this.renderItem.bind(this);
         listView2.itemNum = 1000;
-        
     }
 
     renderItem(index:number, obj:cc.Node) {

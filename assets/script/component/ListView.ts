@@ -91,9 +91,7 @@ export default class ListView extends cc.Component {
     scrolling() {
         if (this.refreshCount++ % this.frequency != 0) return;
         this.refreshCount = 0;
-        
         let offset = this.scrollView.getScrollOffset();
-        console.log("scrolling ",offset.y);
         if (!this.checkScrollValid(offset)) return;
         if (this.scrollMode == ScrollMode.Horizontal) {
             let deltaX = offset.x - this.lastOffset.x;

@@ -63,13 +63,45 @@ export class Utils {
     /**
      * 返回今天的日期,格式20000101
      */
-    static nowDate(): number {
+    static nowDate() {
+        let lt10 = v => {
+            return v < 10 ? "0" + v : "" + v;
+        }
+        let date = new Date();
+        let str = date.getFullYear() + lt10(date.getMonth() + 1) + lt10(date.getDate());
+        return parseInt(str);
+    }
+
+    /**
+     * 将事件戳转化为日期格式,适用于显示倒计时
+     * @param timeMS 倒计时的时间戳(MS)
+     * @param template 模板 1(HH:MM:SS) 2(HH时MM分SS秒) 3(HH?:MM:SS) 4(HH?时MM分SS秒)
+     * @param separator 分隔符 默认(:)
+     */
+    static formatTimeMS(timeMS: number, template: 1 | 2 | 3 | 4, separator = ":") {
+        let str: string;
         let lt10 = v => {
             return v < 10 ? "0" + v : v;
         }
         let date = new Date();
-        let str = "" + date.getFullYear() + lt10(date.getMonth() + 1) + lt10(date.getDate());
-        return parseInt(str);
+        let offset = date.getTimezoneOffset();//时区差异 minutes
+        date.setTime(timeMS + offset * 60 * 1000);
+        let days = date.getDate() - 1;
+        let hours = date.getHours() + days * 24;
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+        if (template == 1) {
+            str = `${lt10(hours)}${separator}${lt10(minutes)}${separator}${lt10(seconds)}`;
+        } else if (template == 2) {
+            str = `${lt10(hours)}时${lt10(minutes)}分${lt10(seconds)}秒`;
+        } else if (template == 3) {
+            str = hours > 0 ? `${lt10(hours)}${separator}` : "";
+            str += `${lt10(minutes)}${separator}${lt10(seconds)}`
+        } else if (template == 4) {
+            str = hours > 0 ? `${lt10(hours)}时` : "";
+            str += `${lt10(minutes)}分${lt10(seconds)}秒`
+        }
+        return str;
     }
 
 }
