@@ -34,36 +34,28 @@ export class Utils {
     }
 
     /** 
-     * 为目标组件绑定事件 
-     * @param targetComp 目标组件
-     * @param target 节点
-     * @param component 组件名
-     * @param handler 方法名
-     * @param customData 附带参数
-     * @param clear 是否清除原有事件,默认true
+     * 为按钮绑定事件,重复的事件不会再次绑定
      */
-    static bindEvents(targetComp: cc.Button | cc.Toggle | cc.ScrollView, target: cc.Node, component: string, handler: string, customData: any, clear = true) {
-        let eventHandler = new cc.Component.EventHandler();
-        eventHandler.target = target;
-        eventHandler.component = component;
-        eventHandler.handler = handler;
-        eventHandler.customEventData = customData;
-        if (targetComp instanceof cc.Button && !(targetComp instanceof cc.Toggle)) {
-            if (clear) (targetComp as cc.Button).clickEvents = [];
-            (targetComp as cc.Button).clickEvents.push(eventHandler);
-        } else if (targetComp instanceof cc.Toggle) {
-            if (clear) (targetComp as cc.Toggle).clickEvents = [];
-            (targetComp as cc.Toggle).clickEvents.push(eventHandler);
-        } else if (targetComp instanceof cc.ScrollView) {
-            if (clear) (targetComp as cc.ScrollView).scrollEvents = [];
-            (targetComp as cc.ScrollView).scrollEvents.push(eventHandler);
+    static bindButtonEvent(button: cc.Button, target: cc.Node, component: string, handler: string, customData?: any) {
+        let clickEvents = button.clickEvents;
+        let eventHandler = clickEvents.find(v => {
+            return v.target == target && v.component == component &&
+                v.handler == v.handler && v.customEventData == customData;
+        });
+        if (!eventHandler) {
+            eventHandler = new cc.Component.EventHandler();
+            eventHandler.target = target;
+            eventHandler.component = component;
+            eventHandler.handler = handler;
+            eventHandler.customEventData = customData;
+            button.clickEvents.push(eventHandler);
         }
     }
 
     /**
      * 返回今天的日期,格式20000101
      */
-    static nowDate() {
+    static getToDay() {
         let lt10 = v => {
             return v < 10 ? "0" + v : "" + v;
         }
@@ -101,6 +93,16 @@ export class Utils {
             str = hours > 0 ? `${lt10(hours)}时` : "";
             str += `${lt10(minutes)}分${lt10(seconds)}秒`
         }
+        return str;
+    }
+
+    /**
+     * 格式化字符串,用args的内容替换str中的{i},i从0开始
+     */
+    static formatString(str: string, ...args) {
+        args.forEach((v, i) => {
+            str = str.replace(`{${i}}`, v);
+        });
         return str;
     }
 

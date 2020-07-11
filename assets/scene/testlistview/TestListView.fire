@@ -552,7 +552,7 @@
       "__uuid__": "41a5006e-540c-466e-be40-55248659181a"
     },
     "frameCost": 0,
-    "frequency": 2,
+    "frequency": 5,
     "_id": "91KCiBmbdAtJFELOiRJkpD"
   },
   {
@@ -780,7 +780,7 @@
       "__uuid__": "ccb951a5-532f-4b55-92a1-45ab94fb4749"
     },
     "frameCost": 0,
-    "frequency": 2,
+    "frequency": 3,
     "_id": "23GXckiX9IA52shUqJJR1u"
   },
   {

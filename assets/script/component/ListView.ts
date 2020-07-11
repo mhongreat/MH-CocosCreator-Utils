@@ -177,7 +177,7 @@ export default class ListView extends cc.Component {
     /** 滚动时动态调整item位置 */
     setListView(type: ScrollType) {
         console.log(type);
-        
+
         let offsetX = Math.abs(this.scrollView.getScrollOffset().x);
         let offsetY = Math.abs(this.scrollView.getScrollOffset().y);
         if (type == ScrollType.Up || type == ScrollType.Left) {
