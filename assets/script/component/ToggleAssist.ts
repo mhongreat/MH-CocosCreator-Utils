@@ -2,7 +2,7 @@ const { ccclass, property } = cc._decorator;
 
 /** Toggle选中时隐藏背景 */
 @ccclass
-export default class Switch extends cc.Component {
+export default class ToggleAssist extends cc.Component {
     @property({
         type: cc.Node,
         displayName: "背景节点",
@@ -19,7 +19,6 @@ export default class Switch extends cc.Component {
     onToggle(toggle: cc.Toggle) {
         if (!this.bg) return;
         this.bg.active = !toggle.isChecked;
-
     }
 }
 
