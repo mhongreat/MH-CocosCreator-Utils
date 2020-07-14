@@ -6,7 +6,7 @@ export default class ButtonAssist extends cc.Component {
         displayName: "禁用默认音效",
         tooltip: "选中时，点击按钮不会播放默认音效"
     })
-    disableDefault = true;
+    disableDefault = false;
     @property({
         type: cc.AudioClip,
         displayName: "音效",
@@ -23,7 +23,6 @@ export default class ButtonAssist extends cc.Component {
     button: cc.Button = null;
 
     onLoad() {
-        ButtonAssist.enableDefaultEffect();
         this.button = this.getComponent(cc.Button);
         if (this.button) {
             this.button["disableDefault"] = this.disableDefault;
@@ -38,13 +37,11 @@ export default class ButtonAssist extends cc.Component {
         this.button.interactable = false;
         this.scheduleOnce(() => {
             this.button.interactable = true;
-        }, 2);
-        console.log("Button Click");
+        }, this.cooldown);
     }
-
     /**
-     * 修改原型，所有按钮点击时播放默认音效，不需要将该组件挂在节点上同样有效
-     * 若需要禁用单个按钮默认音效 button["disableDefault"]=true
+     * 修改原型，针对所有按钮，不需要将该组件挂在Button节点上同样有效
+     * 为按钮增加播放点击音效，button["disableDefault"]=true时不会播放默认音效
      */
     public static enableDefaultEffect() {
         cc.Button.prototype["_onTouchEnded"] = function (event) {
@@ -62,3 +59,4 @@ export default class ButtonAssist extends cc.Component {
         }
     }
 }
+ButtonAssist.enableDefaultEffect();//引擎加载后立即执行

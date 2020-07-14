@@ -1,4 +1,7 @@
 import { UIManager,EUIName } from "../../script/ui/UIManager";
+// import ButtonAssist from "../../script/component/ButtonAssist";
+// import ButtonAssist from "../../script/component/ButtonAssist";
+// import ButtonAssist from "../../script/component/ButtonAssist";
 
 const {ccclass, property} = cc._decorator;
 
@@ -7,6 +10,7 @@ export default class TestUIManager extends cc.Component {
 
     start () {
         UIManager.inst.init();
+        
     }
     
     openUI(){
