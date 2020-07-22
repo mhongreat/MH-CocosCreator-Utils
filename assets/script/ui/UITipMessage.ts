@@ -26,6 +26,7 @@ export default class UITipMessage extends cc.Component {
         this.tipBox.active = false;
         this.tipBox.zIndex = 1;
     }
+
     /**
      * 显示提示
      * @param content 提示内容
@@ -41,6 +42,8 @@ export default class UITipMessage extends cc.Component {
             .to(0.2, { opacity: 0 })
             .start();
     }
+
+    
 
     /**
      * 显示提示框

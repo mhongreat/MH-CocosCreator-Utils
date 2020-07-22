@@ -14,8 +14,8 @@ export class UIManager {
         return this._inst;
     }
 
-    private uiDict: { [name: string]: UIBase } = {};
-    private uiStack: UIBase[] = [];
+    private uiDict: { [name: string]: UIBase } = null;
+    private uiStack: UIBase[] = null;
     private cooldown = false;//ui打开时进入冷却
     /** 半透明遮罩 */
     private shade: cc.Node = null;
@@ -52,20 +52,18 @@ export class UIManager {
     }
 
 
-    public async openUI(name: EUIName, args?: any, action?: boolean) {
+    public async openUI<T extends UIBase>(name: EUIName, obj: { args: any, action: boolean }) {
         if (this.cooldown) return;
         this.cooldown = true;
         let ui = await this.initUI(name);
-        ui.setUIName(name);
-        ui.setArgs(args);
-        ui.setZIndex(this.getTopUIZIndex() + 2);
-        this.normalLayer.addChild(ui.node);
+        ui.setArgs(obj?.args);
+        this.normalLayer.addChild(ui.node, this.getUIZIndex());
         this.uiStack.push(ui);
         this.setShade();
-        await ui.open(action);
+        await ui.open(obj?.action);
         this.setUIVisible();
         this.cooldown = false;
-        return ui;
+        return ui as T;
     }
 
     public async closeUI(name: EUIName, action?: boolean) {
@@ -82,7 +80,6 @@ export class UIManager {
                 this.uiDict[name] = undefined;
             }
         }
-        return true;
     }
 
     public async initUI(name: EUIName) {
@@ -99,6 +96,7 @@ export class UIManager {
         let node = await this.instUINode(name);
         ui = node.getComponent(UIBase);
         ui.init();
+        ui.setUIName(name);
         this.uiDict[name] = ui;
         return ui;
     }
@@ -118,21 +116,13 @@ export class UIManager {
         return p;
     }
 
-    public getStackUI(name: EUIName) {
+    public getStackUI<T extends UIBase>(name: EUIName): T {
         let ui = this.uiDict[name];
         if (ui?.isValid && this.uiStack.includes(ui)) {
-            return ui;
+            return ui as T;
         } else {
             return null;
         }
-    }
-
-    public isTopUI(name: EUIName) {
-        let ui = this.uiDict[name];
-        if (ui) {
-            return ui == this.getTopUI();
-        }
-        return false;
     }
 
     public getTopUI() {
@@ -143,12 +133,12 @@ export class UIManager {
         }
     }
 
-    public getTopUIZIndex() {
+    public getUIZIndex() {
         let ui = this.getTopUI();
         if (ui) {
-            return ui.node.zIndex;
+            return ui.node.zIndex + 2;
         }
-        return -1;
+        return 0;
     }
 
     private setShade() {
@@ -161,14 +151,16 @@ export class UIManager {
     }
 
     private setUIVisible() {
-        let topUI = this.getTopUI();
-        topUI?.setOpacity(255);
-        for (let i = this.uiStack.length - 1; i > 0; i--) {
+        let isCover = false;
+        for (let i = this.uiStack.length - 1; i >= 0; i--) {
             let ui = this.uiStack[i];
-            if (ui.cover) {
-                this.uiStack[i - 1].setOpacity(0);
+            if (i == this.uiStack.length - 1) {
+                ui.setOpacity(255);
+            }
+            if (!isCover) {
+                isCover = ui.cover;
             } else {
-                this.uiStack[i - 1].setOpacity(255);
+                ui.setOpacity(0);
             }
         }
     }
