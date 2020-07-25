@@ -14,9 +14,11 @@ export class UIManager {
         return this._inst;
     }
 
+
     private uiDict: { [name: string]: UIBase } = null;
     private uiStack: UIBase[] = null;
     private cooldown = false;//ui打开时进入冷却
+
     /** 半透明遮罩 */
     private shade: cc.Node = null;
     /** 普通的ui页面 */
@@ -116,13 +118,18 @@ export class UIManager {
         return p;
     }
 
-    public getStackUI<T extends UIBase>(name: EUIName): T {
-        let ui = this.uiDict[name];
-        if (ui?.isValid && this.uiStack.includes(ui)) {
-            return ui as T;
+    public getStackUI<T extends UIBase>(c: new () => T | EUIName): T {
+        if (typeof c === "string") {
+            let ui = this.uiDict[name];
+            if (ui?.isValid && this.uiStack.includes(ui)) {
+                return ui as T;
+            }
         } else {
-            return null;
+            this.uiStack.forEach(v => {
+                if (v instanceof c) return v as T;
+            });
         }
+        return null;
     }
 
     public getTopUI() {
