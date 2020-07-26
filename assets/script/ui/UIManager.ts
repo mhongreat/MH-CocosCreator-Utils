@@ -54,7 +54,7 @@ export class UIManager {
     }
 
 
-    public async openUI<T extends UIBase>(name: EUIName, obj: { args: any, action: boolean }) {
+    public async openUI<T extends UIBase>(name: EUIName, obj?: { args: any, action: boolean }) {
         if (this.cooldown) return;
         this.cooldown = true;
         let ui = await this.initUI(name);
@@ -79,6 +79,7 @@ export class UIManager {
             ui.node.parent = null;
             if (ui.destroyNode) {
                 ui.node.destroy();
+                cc.resources.release(name);
                 this.uiDict[name] = undefined;
             }
         }
@@ -103,9 +104,9 @@ export class UIManager {
         return ui;
     }
 
-    private async instUINode(path: string) {
+    private async instUINode(name: string) {
         let p = new Promise<cc.Node>((resolve, reject) => {
-            cc.resources.load(path, cc.Prefab, (err, prefab: any) => {
+            cc.resources.load(name, cc.Prefab, (err, prefab: any) => {
                 if (err) {
                     console.error(err);
                     reject(err);
@@ -118,18 +119,19 @@ export class UIManager {
         return p;
     }
 
-    public getStackUI<T extends UIBase>(c: new () => T | EUIName): T {
+    public getUI<T extends UIBase>(c: new () => T | EUIName): T {
+        if (!c) return;
         if (typeof c === "string") {
-            let ui = this.uiDict[name];
-            if (ui?.isValid && this.uiStack.includes(ui)) {
-                return ui as T;
+            let ui = this.uiDict[c] as T;
+            if (ui && ui.isValid) {
+                return ui;
             }
         } else {
-            this.uiStack.forEach(v => {
-                if (v instanceof c) return v as T;
-            });
+            for (let name in this.uiDict) {
+                let ui = this.uiDict[name];
+                if (ui instanceof c) return ui as T;
+            }
         }
-        return null;
     }
 
     public getTopUI() {

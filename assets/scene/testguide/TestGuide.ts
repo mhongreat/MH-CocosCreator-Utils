@@ -6,8 +6,6 @@ const {ccclass, property} = cc._decorator;
 export default class TestGuide extends cc.Component {
 
     start(){
-        console.log(EUIName["ass"]);
-        
         UIManager.inst.init().then(()=>{
             UIManager.inst.openUI(EUIName.UI3);
         })

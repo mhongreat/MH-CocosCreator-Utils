@@ -41,7 +41,7 @@ export default class UIGUide extends UIBase {
         let strs = this.pathArr[index].split(":");
         if (strs.length == 2) {
             let uiName = EUIName[strs[0]];
-            let ui = uiName && UIManager.inst.getStackUI(uiName);
+            let ui = UIManager.inst.getUI(uiName);
             let func = (uiData: UIBase) => {
                 let btnNode = cc.find(strs[1], uiData.node);
                 if (btnNode) {
@@ -49,7 +49,7 @@ export default class UIGUide extends UIBase {
                     btnNode.once("click", this.onClickGuideBtn.bind(this, index));
                 }
             }
-            if (ui) {
+            if (ui && ui.node.parent) {
                 func(ui);
             } else {
                 EventUtil.once(uiName + "_open", (uiData: UIBase) => {
